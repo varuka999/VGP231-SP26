@@ -104,3 +104,11 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+VGP231_VA/[Ll]ibrary/
+VGP231_VA/[Tt]emp/
+VGP231_VA/[Oo]bj/
+VGP231_VA/[Bb]uild/
+VGP231_VA/[Bb]uilds/
+VGP231_VA/[Ll]ogs/
+VGP231_VA/[Uu]ser[Ss]ettings/
