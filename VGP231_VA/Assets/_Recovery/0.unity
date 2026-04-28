@@ -3068,9 +3068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b065b4a7aa19eb444bcc8aa78410246b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  duration: 0.5
-  zoomedFOV: 10
-  tiltAmount: -90
+  duration: 0.4
+  zoomedFOV: 30
+  tiltAmount: -20
   cutThisFrame: 0
 --- !u!1 &2036149055
 GameObject:

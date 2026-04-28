@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
 
     private Vector3 velocity;
+    public Vector3 Velocity => velocity;
     private Vector2 moveInput;
 
     void Start()
@@ -28,7 +29,6 @@ public class PlayerController : MonoBehaviour
         );
 
         HandleMovement();
-        HandleFacing();
     }
 
     void HandleMovement()
@@ -59,21 +59,5 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += velocity * Time.deltaTime;
-    }
-
-    void HandleFacing()
-    {
-        // Flip based on horizontal movement only (Paper Mario style)
-        if (sprite != null && velocity.sqrMagnitude > 0.01f)
-        {
-            float dot = Vector3.Dot(cam.transform.right, velocity);
-
-            if (Mathf.Abs(dot) > 0.01f)
-            {
-                Vector3 scale = sprite.localScale;
-                scale.x = Mathf.Sign(dot) * Mathf.Abs(scale.x);
-                sprite.localScale = scale;
-            }
-        }
     }
 }
