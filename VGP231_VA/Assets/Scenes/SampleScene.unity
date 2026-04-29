@@ -2878,15 +2878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba174cd5b3cd014fa65c48de43172e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Kuwahara
-  kuwaharaShader: {fileID: 4800000, guid: 15f023eee3eeade4ba0ec3171cec743d, type: 3}
-  kernelSize: 20
-  animateKernelSize: 0
-  minKernelSize: 1
-  sizeAnimationSpeed: 1
-  noiseFrequency: 10
-  animateKernelOrigin: 0
-  passes: 1
-  kuwaharaMat: {fileID: 0}
 --- !u!1 &1973703180
 GameObject:
   m_ObjectHideFlags: 0
