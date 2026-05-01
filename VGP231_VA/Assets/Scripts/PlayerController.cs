@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 10f;
     public float deceleration = 15f;
 
+    private bool disableMove = false;
+
     [Header("References")]
-    public Transform sprite;
     public Camera cam;
 
     private Vector3 velocity;
@@ -28,7 +29,10 @@ public class PlayerController : MonoBehaviour
             Input.GetAxisRaw("Vertical")
         );
 
-        HandleMovement();
+        if(!disableMove)
+        {
+            HandleMovement();
+        }
     }
 
     void HandleMovement()
@@ -59,5 +63,10 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += velocity * Time.deltaTime;
+    }
+
+    public void SetMove(bool move)
+    {
+        disableMove = !move;
     }
 }

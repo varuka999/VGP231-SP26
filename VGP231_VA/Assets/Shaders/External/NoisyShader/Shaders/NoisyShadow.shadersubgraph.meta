@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 243477f4522c30b4e893a77e9fa6fa70
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 60072b568d64c40a485e0fc55012dc9f, type: 3}
+  documentationPath: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Shaders/NoisyShadow.shadersubgraph
+  uploadId: 889216

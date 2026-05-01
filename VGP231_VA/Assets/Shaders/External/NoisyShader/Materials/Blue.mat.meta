@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 17d83f41d889c7e4489b4d3eaaa78c43
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Materials/Blue.mat
+  uploadId: 889216

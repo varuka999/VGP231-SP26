@@ -12,6 +12,8 @@ public class RoomTransition : MonoBehaviour
 
     [SerializeField] private Transform targetPlayerPos;
 
+    [SerializeField] private AudioClip[] transitionSoundClips;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -23,6 +25,7 @@ public class RoomTransition : MonoBehaviour
     private IEnumerator ChangeScene(Transform playerTransform)
     {
         CameraManager.Instance.DoTransition(currentCam, targetCam);
+        AudioManager.Instance.PlaySoundInSpace(AudioManager.Instance.GetRandomSound(transitionSoundClips), gameObject.transform.position);
 
         yield return new WaitUntil(() => CameraManager.Instance.cutThisFrame);
 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a4f5325be60b4924db763d9bfb7fe99e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Materials/Sky.mat
+  uploadId: 889216
