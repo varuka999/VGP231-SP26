@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c07395f865a2ed543a4d3e5398a49698
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Shaders/MainLightShadows.hlsl
+  uploadId: 889216

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b07c401fb30cb034f8dc433460e48169
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Materials/Ground.mat
+  uploadId: 889216

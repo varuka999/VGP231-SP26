@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4d344df10d1e7f64e806c92c21fa0a46
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Scenes/Demo.unity
+  uploadId: 889216

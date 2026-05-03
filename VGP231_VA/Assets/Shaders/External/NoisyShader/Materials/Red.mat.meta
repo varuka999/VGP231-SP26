@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 28ecb2b7a31e5414081c08e03f95a04f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 369526
+  packageName: Noisy Shader
+  packageVersion: 1.0
+  assetPath: Assets/NoisyShader/Materials/Red.mat
+  uploadId: 889216
