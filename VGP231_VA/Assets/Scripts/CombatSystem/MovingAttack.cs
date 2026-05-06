@@ -1,0 +1,89 @@
+using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum MovementProfile
+{
+    Straight,
+    VerticalArc,
+    HorizontalArc,
+}
+
+public class MovingAttack : MonoBehaviour
+{
+    public Transform start;
+    public Transform end;
+    public Ease easeType;
+    public float duration;
+    public MovementProfile movementType;
+
+    private void OnEnable()
+    {
+        switch (movementType)
+        {
+            case MovementProfile.Straight:
+                Straight();
+                break;
+            case MovementProfile.VerticalArc:
+                break;
+            case MovementProfile.HorizontalArc:
+                HorizontalArc();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void Start()
+    {
+        //Attack();
+    }
+    public void LOOOP()
+    {
+        Debug.Log("LOOOOOOOOOOOOOOOOOOP");
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(gameObject.transform.DOMoveY(-3.0f, 3.0f));
+        seq.Append(gameObject.transform.DOMoveY(3.0f, 3.0f));
+        seq.SetLoops(-1);
+
+        seq.Play();
+
+        //gameObject.transform.DOMoveY(-3.0f, 3.0f);
+    }
+    public void Move()
+    {
+        gameObject.transform.DOMoveY(-3.0f, 3.0f);
+    }
+
+    public void Straight()
+    {
+        Sequence seq = DOTween.Sequence();
+
+        //seq.Append(gameObject.transform.DOLocalMoveY(-0.3f, 0.5f)).SetEase(Ease.InSine);
+        //seq.Join(gameObject.transform.DOShakePosition(0.5f));
+        seq.Append(gameObject.transform.DOMove(new Vector3(end.position.x, end.position.y, end.position.z), duration)).SetEase(easeType).OnComplete(Delete);
+
+        seq.Play();
+    }
+
+    public void HorizontalArc()
+    {
+        Sequence seq1 = DOTween.Sequence();
+        Sequence seq2 = DOTween.Sequence();
+        float startZ = gameObject.transform.position.z;
+        seq1.Append(gameObject.transform.DOMoveX(end.position.x, duration)).SetEase(easeType).OnComplete(Delete);
+        seq2.Append(gameObject.transform.DOMoveZ(end.position.z + -1.0f, duration * 0.5f).SetEase(easeType));
+        seq2.Append(gameObject.transform.DOMoveZ(startZ, duration * 0.5f).SetEase(easeType));
+
+        seq1.Play();
+        seq2.Play();
+    }
+
+    void Delete()
+    {
+        //Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+    }
+}
