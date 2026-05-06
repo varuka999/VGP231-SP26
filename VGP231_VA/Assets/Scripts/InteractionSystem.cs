@@ -1,0 +1,48 @@
+using UnityEngine;
+using UnityEngine.Events;
+using static TriggerVolume;
+
+public class InteractionSystem : MonoBehaviour
+{
+    private enum InteractionType
+    {
+        Once,
+        Repeated
+    }
+
+    private TriggerVolume volumeScript;
+
+    [Header("Interaction Settings")]
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] private InteractionType interactionType = InteractionType.Once;
+
+    [Header("Event")]
+    [SerializeField] private UnityEvent onTriggered;
+
+    private void Start()
+    {
+        volumeScript = GetComponent<TriggerVolume>();
+    }
+
+    private bool interactionComplete = false;
+
+    private void Update()
+    {
+        if(!interactionComplete)
+        {
+            if (volumeScript.VolumeConditionSatisfied && Input.GetKeyDown(interactKey))
+            {
+                onTriggered?.Invoke();
+
+                if (interactionType == InteractionType.Once)
+                {
+                    interactionComplete = true;
+                }
+            }
+            else if(!volumeScript.VolumeConditionSatisfied)
+            {
+
+            }
+        }
+    }
+}

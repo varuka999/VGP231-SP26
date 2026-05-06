@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 279e2f52e301ab540bf6d4cc60d48a6c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 279e2f52e301ab540bf6d4cc60d48a6c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2078,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: -7918335002988649766, guid: 39a5d33cbc1b3cc4c982bc0907ed2062, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b7505790b0f49ee4886aeabe62bc0dcb, type: 2}
+      objectReference: {fileID: 2100000, guid: 332e04bb5e55f9e42a1f371873506f6a, type: 2}
     - target: {fileID: -7029948723529949830, guid: 39a5d33cbc1b3cc4c982bc0907ed2062, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2126,7 +2126,7 @@ PrefabInstance:
     - target: {fileID: -4683669308469848369, guid: 39a5d33cbc1b3cc4c982bc0907ed2062, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1e7b13d5fe8f9054881fb76ebcf17f5c, type: 2}
+      objectReference: {fileID: 2100000, guid: 6052a6e4c5b4f5241b4cc723459f862d, type: 2}
     - target: {fileID: -4683669308469848369, guid: 39a5d33cbc1b3cc4c982bc0907ed2062, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -2138,7 +2138,7 @@ PrefabInstance:
     - target: {fileID: 882129737928793925, guid: 39a5d33cbc1b3cc4c982bc0907ed2062, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b7505790b0f49ee4886aeabe62bc0dcb, type: 2}
+      objectReference: {fileID: 2100000, guid: 332e04bb5e55f9e42a1f371873506f6a, type: 2}
     - target: {fileID: 919132149155446097, guid: 39a5d33cbc1b3cc4c982bc0907ed2062, type: 3}
       propertyPath: m_Name
       value: Hall
@@ -2510,10 +2510,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8715320612546868580, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
 --- !u!224 &1689403268 stripped
 RectTransform:
@@ -2996,7 +2993,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 16.1
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3022,8 +3019,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840832624}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09483399, y: -0.83562213, z: 0.15266743, w: 0.5190711}
-  m_LocalPosition: {x: 11.1, y: 4.46, z: 5.56}
+  m_LocalRotation: {x: 4.652251e-11, y: 0.9996881, z: -0.024976598, w: 0.000000001862063}
+  m_LocalPosition: {x: -5.5102854, y: -0.251, z: 2.300219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -7,8 +7,7 @@ public class TriggerVolume : MonoBehaviour
     {
         Enter,
         Stay,
-        Exit,
-        StayAndPressKey
+        Exit
     }
 
     [Header("Detection")]
@@ -17,9 +16,6 @@ public class TriggerVolume : MonoBehaviour
     [Header("Mode")]
     [SerializeField] private TriggerMode triggerMode = TriggerMode.Enter;
 
-    [Header("Interaction Key")]
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
-
     [Header("Event")]
     [SerializeField] private UnityEvent onTriggered;
 
@@ -27,15 +23,8 @@ public class TriggerVolume : MonoBehaviour
 
     public bool PlayerInside => playerInside;
 
-    private void Update()
-    {
-        if (triggerMode == TriggerMode.StayAndPressKey &&
-            playerInside &&
-            Input.GetKeyDown(interactKey))
-        {
-            onTriggered?.Invoke();
-        }
-    }
+    private bool volumeConditionSatisfied;
+    public bool VolumeConditionSatisfied => volumeConditionSatisfied;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,7 +34,10 @@ public class TriggerVolume : MonoBehaviour
         playerInside = true;
 
         if (triggerMode == TriggerMode.Enter)
+        {
             onTriggered?.Invoke();
+            volumeConditionSatisfied = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -54,7 +46,10 @@ public class TriggerVolume : MonoBehaviour
             return;
 
         if (triggerMode == TriggerMode.Stay)
+        {
             onTriggered?.Invoke();
+            volumeConditionSatisfied = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -65,6 +60,13 @@ public class TriggerVolume : MonoBehaviour
         playerInside = false;
 
         if (triggerMode == TriggerMode.Exit)
+        {
             onTriggered?.Invoke();
+            volumeConditionSatisfied = true;
+        }
+        else if(triggerMode == TriggerMode.Stay)
+        {
+            volumeConditionSatisfied = false;
+        }
     }
 }

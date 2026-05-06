@@ -38,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
 
     private bool dialogueStarted;
     private bool dialogueEnded;
+    public bool DialogueEnded => dialogueEnded;
 
     // References
     private TriggerVolume volumeScript;
@@ -86,6 +87,12 @@ public class DialogueSystem : MonoBehaviour
 
     public void NextDialogue()
     {
+        // Disabling dialogue interrupution for now for simplicity
+        if(typingRoutine != null)
+        {
+            return;
+        }
+
         dialogueStarted = true;
 
         ClearAllText();

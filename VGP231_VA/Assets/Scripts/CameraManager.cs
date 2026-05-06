@@ -29,6 +29,30 @@ public class CameraManager : MonoBehaviour
         cutThisFrame = false;
     }
 
+    public void SwitchCameras(CinemachineCamera from, CinemachineCamera to, int activePriority = 20, int inactivePriority = 0)
+    {
+        if (from != null)   
+            from.Priority = inactivePriority;
+
+        if (to != null)
+            to.Priority = activePriority;
+    }
+
+    public void SwitchToCamera(CinemachineCamera to, int activePriority = 20, int inactivePriority = 0)
+    {
+
+    }
+
+    public void SetCameraPriority(CinemachineCamera cam, int priority)
+    {
+        if (cam == null)
+        {
+            Debug.LogWarning("SetCameraPriority: Camera is null.");
+            return;
+        }
+
+        cam.Priority = priority;
+    }
     public void DoTransition(CinemachineCamera camA, CinemachineCamera camB)
     {
         if (busy) return;
