@@ -28,7 +28,7 @@ public class MovingAttack : MonoBehaviour
             case MovementProfile.VerticalArc:
                 break;
             case MovementProfile.HorizontalArc:
-                HorizontalArc();
+                HorizontalArc2();
                 break;
             default:
                 break;
@@ -72,13 +72,29 @@ public class MovingAttack : MonoBehaviour
     {
         Sequence seq1 = DOTween.Sequence();
         Sequence seq2 = DOTween.Sequence();
-        float startZ = gameObject.transform.position.z;
-        seq1.Append(gameObject.transform.DOMoveX(end.position.x, duration)).SetEase(easeType).OnComplete(Delete);
-        seq2.Append(gameObject.transform.DOMoveZ(end.position.z + -1.0f, duration * 0.5f).SetEase(easeType));
-        seq2.Append(gameObject.transform.DOMoveZ(startZ, duration * 0.5f).SetEase(easeType));
+        //float startZ = gameObject.transform.position.z;
+        float startZ = 0.5f;
+        seq1.Append(gameObject.transform.DOMoveX(end.position.x, duration)).SetEase(easeType);
+        seq2.Append(gameObject.transform.DOMoveZ(end.position.z + -2.0f, duration * 0.5f).SetEase(easeType)).OnComplete(() =>
+        { gameObject.transform.DOMoveZ(startZ, duration * 0.5f).SetEase(easeType).OnComplete(Delete); });
 
         seq1.Play();
         seq2.Play();
+    }
+
+    public void HorizontalArc2()
+    {
+        float startZ = transform.position.z;
+        float arcZ = startZ - 1.5f;
+
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(transform.DOMoveX(end.position.x, duration).SetEase(easeType));
+
+        sequence.Join(transform.DOMoveZ(arcZ, duration * 0.5f).SetEase(Ease.OutQuad)
+                .OnComplete(() => { transform.DOMoveZ(startZ, duration * 0.5f).SetEase(Ease.InQuad); }));
+
+        sequence.OnComplete(Delete);
     }
 
     void Delete()
