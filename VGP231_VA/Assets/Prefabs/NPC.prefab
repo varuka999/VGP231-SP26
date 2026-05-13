@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9113101722021393458}
   - component: {fileID: 7972578867723319148}
   - component: {fileID: 7333351678017638545}
+  - component: {fileID: 1465668906308369741}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Player
@@ -168,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableTrigger
   targetTag: Player
   triggerMode: 3
-  interactKey: 101
   onTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -223,17 +223,36 @@ MonoBehaviour:
   dialogueEntries:
   - text: Hi...
     targetIndex: 0
+    isCombatTrigger: 0
   - text: Hi!
     targetIndex: 1
+    isCombatTrigger: 0
   - text: Are we the same guy?
     targetIndex: 0
+    isCombatTrigger: 0
   - text: Sure Are!
     targetIndex: 1
+    isCombatTrigger: 0
   - text: Isn't that weird?
     targetIndex: 0
+    isCombatTrigger: 0
   - text: I guess.
     targetIndex: 1
+    isCombatTrigger: 0
   letterDelay: 0.03
+--- !u!114 &1465668906308369741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160134582392557974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0130fb1870701e847b29a21c2b5a3665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombatHandler
+  attackCycleGameObject: []
 --- !u!1001 &8997656045075004428
 PrefabInstance:
   m_ObjectHideFlags: 0
