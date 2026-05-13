@@ -9,6 +9,10 @@ public class EnemyCombatHandler : MonoBehaviour
     private float radiusStart = 0;
 
     private PlayerCombatHandler playerCombatHandler = null;
+    private void Start()
+    {
+        playerCombatHandler = FindAnyObjectByType<PlayerCombatHandler>();
+    }
 
     public bool InCombat => inCombat;
 

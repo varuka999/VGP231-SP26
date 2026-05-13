@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackCollision : MonoBehaviour
 {
-    public void DeactivateCOllision()
+    public void DeactivateCollision()
     {
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
     }

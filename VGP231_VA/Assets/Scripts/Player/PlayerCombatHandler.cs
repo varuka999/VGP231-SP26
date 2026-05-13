@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombatHandler : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class PlayerCombatHandler : MonoBehaviour
     {
         if (other.gameObject.tag == "Attack")
         {
-
+            other.gameObject.GetComponent<AttackCollision>().DeactivateCollision();
+            TakeDamage();
         }
     }
 
@@ -18,7 +20,7 @@ public class PlayerCombatHandler : MonoBehaviour
         healthCounter = 3;
     }
 
-    private void UpdateHealth()
+    private void TakeDamage()
     {
         --healthCounter;
         // play sfx & audio
@@ -31,6 +33,9 @@ public class PlayerCombatHandler : MonoBehaviour
 
     private void PlayerDeath()
     {
-
+        // play sfx & audio
+        // prompt retry
+        // temp
+        SceneManager.LoadScene("Scenario-Test");
     }
 }
