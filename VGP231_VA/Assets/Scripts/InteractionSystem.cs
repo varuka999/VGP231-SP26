@@ -16,6 +16,8 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private InteractionType interactionType = InteractionType.Once;
 
+    [SerializeField] private GameObject interactionTextObject;
+
     [Header("Event")]
     [SerializeField] private UnityEvent onTriggered;
 
@@ -30,19 +32,31 @@ public class InteractionSystem : MonoBehaviour
     {
         if(!interactionComplete)
         {
-            if (volumeScript.VolumeConditionSatisfied && Input.GetKeyDown(interactKey))
+            if (volumeScript.VolumeConditionSatisfied)
             {
-                onTriggered?.Invoke();
+                if(interactionTextObject != null)
+                    interactionTextObject?.SetActive(true);
 
-                if (interactionType == InteractionType.Once)
+                if(Input.GetKeyDown(interactKey))
                 {
-                    interactionComplete = true;
+                    onTriggered?.Invoke();
+
+                    if (interactionType == InteractionType.Once)
+                    {
+                        interactionComplete = true;
+                    }
                 }
             }
             else if(!volumeScript.VolumeConditionSatisfied)
             {
-
+                if (interactionTextObject != null)
+                    interactionTextObject?.SetActive(false);
             }
+        }
+        else
+        {
+            if (interactionTextObject != null)
+                interactionTextObject?.SetActive(false);
         }
     }
 }
