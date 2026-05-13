@@ -42,7 +42,7 @@ public class DialogueSystem : MonoBehaviour
     private bool isDialogueActive;
     public bool IsDialogueActive => isDialogueActive;
 
-    // References
+    [Header("References")]
     private TriggerVolume volumeScript;
     private AudioSource talkingCharacterSource;
     private PlayerController playerController;
@@ -97,24 +97,32 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
-        DialogueEntry entry = dialogueEntries[currentDialogueIndex];
-
         ClearAllText();
 
-        if (enemyCombatHandler != null && entry.isCombatTrigger)
-        {
-            isDialogueActive = false;
-            entry.isCombatTrigger = false;
-            Debug.Log("Combat Start from Dialogue Trigger!");
-            enemyCombatHandler.CombatCycle();
-            return;
-        }
 
         if (currentDialogueIndex >= dialogueEntries.Length)
         {
             Debug.Log("End of Dialogue!");
             isDialogueActive = false;
             return;
+        }
+
+        DialogueEntry entry = dialogueEntries[currentDialogueIndex];
+
+        if (enemyCombatHandler != null)
+        {
+            if (enemyCombatHandler.InCombat)
+            {
+                return;
+            }
+            else if (entry.isCombatTrigger)
+            {
+                isDialogueActive = false;
+                entry.isCombatTrigger = false;
+                Debug.Log("Combat Start from Dialogue Trigger!");
+                enemyCombatHandler.CombatCycle();
+                return;
+            }
         }
 
         if (entry.targetIndex < 0 || entry.targetIndex >= textTargets.Length)
