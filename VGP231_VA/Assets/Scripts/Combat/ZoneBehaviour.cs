@@ -1,12 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZoneBehaviour : MonoBehaviour
 {
-    // play next attack
-    // if no more attacks, end of attack cycle
-
     [SerializeField] private EnemyCombatHandler enemy = null;
+    [SerializeField] private GameObject parent = null;
     [SerializeField] List<string> attackPatterns = new List<string>();
     [SerializeField] List<string> zonePatterns = new List<string>();
     [SerializeField] List<GameObject> doTweenAttacks = new List<GameObject>();
@@ -16,8 +15,7 @@ public class ZoneBehaviour : MonoBehaviour
     [SerializeField] Animator zoneAnimator;
     [SerializeField] Animator attackAnimator;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
         PlayerNextZone();
     }
@@ -43,5 +41,6 @@ public class ZoneBehaviour : MonoBehaviour
     public void AttackCycleEnd()
     {
         enemy.CombatCycleEnd();
+        parent.gameObject.SetActive(false);
     }
 }

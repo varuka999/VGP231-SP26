@@ -104,6 +104,12 @@ public class DialogueSystem : MonoBehaviour
         {
             Debug.Log("End of Dialogue!");
             isDialogueActive = false;
+
+            if (enemyCombatHandler != null)
+            {
+                enemyCombatHandler.ResetInteractionCollider();
+            }
+
             return;
         }
 
