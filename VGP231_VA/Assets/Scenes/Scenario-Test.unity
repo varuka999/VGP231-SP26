@@ -510,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBehaviour
   enemy: {fileID: 9113101722394135236}
+  parent: {fileID: 1447854511}
   attackPatterns: []
   zonePatterns:
   - S1_P1_Z1
@@ -2023,6 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBehaviour
   enemy: {fileID: 9113101722394135236}
+  parent: {fileID: 1333306375}
   attackPatterns: []
   zonePatterns:
   - S1_P1_Z1
@@ -7040,6 +7042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBehaviour
   enemy: {fileID: 9113101722394135236}
+  parent: {fileID: 1011276051}
   attackPatterns: []
   zonePatterns:
   - S1_P1_Z1
@@ -8002,7 +8005,6 @@ MonoBehaviour:
   - {fileID: 1333306375}
   - {fileID: 1011276051}
   - {fileID: 1447854511}
-  dialogueCheckpoints: 03000000030000000400000003000000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

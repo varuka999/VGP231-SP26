@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2501456315715640988}
   m_Layer: 0
-  m_Name: AttackParent
+  m_Name: AttackParent_Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 6669810929008256262}
   m_Layer: 0
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
