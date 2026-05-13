@@ -25,6 +25,8 @@ public class DialogueSystem : MonoBehaviour
 
         [Tooltip("Select which TMP_Text in textTargets to use")]
         public int targetIndex;
+
+        public bool isCombatTrigger = false;
     }
 
     [Header("Dialogue Order")]
@@ -36,30 +38,32 @@ public class DialogueSystem : MonoBehaviour
     private int currentDialogueIndex = 0;
     private Coroutine typingRoutine;
 
-    private bool dialogueStarted;
-    private bool dialogueEnded;
-    public bool DialogueEnded => dialogueEnded;
+    //private bool dialogueStarted;
+    private bool isDialogueActive;
+    public bool IsDialogueActive => isDialogueActive;
 
     // References
     private TriggerVolume volumeScript;
     private AudioSource talkingCharacterSource;
     private PlayerController playerController;
+    private EnemyCombatHandler enemyCombatHandler = null;
 
     private void Start()
     {
-        if(volumeScript == null)
+        if (volumeScript == null)
         {
             volumeScript = GetComponent<TriggerVolume>();
         }
 
         playerController = FindAnyObjectByType<PlayerController>();
+        enemyCombatHandler = GetComponent<EnemyCombatHandler>();
     }
 
     private void Update()
     {
-        if(volumeScript != null && currentDialogueIndex == 0)
+        if (volumeScript != null && currentDialogueIndex == 0)
         {
-            if(volumeScript.PlayerInside)
+            if (volumeScript.PlayerInside)
             {
                 // assuming 0 for simplicity
                 textTargets[0].text = interactText;
@@ -70,16 +74,16 @@ public class DialogueSystem : MonoBehaviour
             }
         }
 
-        if(typingRoutine == null && talkingCharacterSource != null)
+        if (typingRoutine == null && talkingCharacterSource != null)
         {
             AudioManager.Instance.StopLoopingSound(talkingCharacterSource);
         }
 
-        if(dialogueStarted && !dialogueEnded)
+        if (isDialogueActive)
         {
             playerController.SetMove(false);
         }
-        else if(dialogueEnded)
+        else if (!isDialogueActive)
         {
             playerController.SetMove(true);
         }
@@ -88,22 +92,30 @@ public class DialogueSystem : MonoBehaviour
     public void NextDialogue()
     {
         // Disabling dialogue interrupution for now for simplicity
-        if(typingRoutine != null)
+        if (typingRoutine != null)
         {
-            return;
-        }
-
-        dialogueStarted = true;
-
-        ClearAllText();
-
-        if (currentDialogueIndex >= dialogueEntries.Length)
-        {
-            dialogueEnded = true;
             return;
         }
 
         DialogueEntry entry = dialogueEntries[currentDialogueIndex];
+
+        ClearAllText();
+
+        if (enemyCombatHandler != null && entry.isCombatTrigger)
+        {
+            isDialogueActive = false;
+            entry.isCombatTrigger = false;
+            Debug.Log("Combat Start from Dialogue Trigger!");
+            enemyCombatHandler.CombatCycle();
+            return;
+        }
+
+        if (currentDialogueIndex >= dialogueEntries.Length)
+        {
+            Debug.Log("End of Dialogue!");
+            isDialogueActive = false;
+            return;
+        }
 
         if (entry.targetIndex < 0 || entry.targetIndex >= textTargets.Length)
         {
@@ -112,6 +124,7 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
+        isDialogueActive = true;
         TMP_Text targetText = textTargets[entry.targetIndex];
 
         if (typingRoutine != null)
@@ -120,10 +133,17 @@ public class DialogueSystem : MonoBehaviour
         typingRoutine = StartCoroutine(TypeText(targetText, entry.text));
 
         talkingCharacterSource = AudioManager.Instance.PlayLoopingSound(
-            AudioManager.Instance.GetRandomSound(characterTalkingClips[entry.targetIndex].clips), 
+            AudioManager.Instance.GetRandomSound(characterTalkingClips[entry.targetIndex].clips),
             textTargets[entry.targetIndex].transform.position);
 
         currentDialogueIndex++;
+
+        if (enemyCombatHandler != null && entry.isCombatTrigger)
+        {
+            Debug.Log("Combat Start from Dialogue Trigger!");
+            enemyCombatHandler.CombatCycle();
+            return;
+        }
     }
 
     IEnumerator TypeText(TMP_Text target, string message)

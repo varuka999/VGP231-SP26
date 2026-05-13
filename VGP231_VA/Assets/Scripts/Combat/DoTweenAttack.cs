@@ -20,6 +20,11 @@ public class DoTweenAttack : MonoBehaviour
 
     private void OnEnable()
     {
+        StartAttack();
+    }
+
+    public void StartAttack()
+    {
         switch (movementType)
         {
             case MovementProfile.Straight:
