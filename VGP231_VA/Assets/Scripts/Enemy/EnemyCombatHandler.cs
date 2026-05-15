@@ -23,7 +23,7 @@ public class EnemyCombatHandler : MonoBehaviour
         {
             playerCombatHandler.CombatStart();
         }
-
+         
         inCombat = true;
         attackCycleGameObject[combatIndex].SetActive(true);
         radiusStart = this.gameObject.GetComponent<SphereCollider>().radius;

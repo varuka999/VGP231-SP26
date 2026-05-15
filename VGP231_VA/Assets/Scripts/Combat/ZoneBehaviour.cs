@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ZoneBehaviour : MonoBehaviour
 {
     [SerializeField] private EnemyCombatHandler enemy = null;
     [SerializeField] private GameObject parent = null;
-    [SerializeField] List<string> attackPatterns = new List<string>();
     [SerializeField] List<string> zonePatterns = new List<string>();
-    [SerializeField] List<GameObject> doTweenAttacks = new List<GameObject>();
-    public int count = 0;
-    public int zCount = 0;
-    public int dCount = 0;
+    [SerializeField] List<string> attackClips = new List<string>();
+    [SerializeField] List<GameObject> attackDoTweens = new List<GameObject>();
+    private int zoneCounter = 0;
+    private int clipCounter = 0;
+    private int doTweenCounter = 0;
     [SerializeField] Animator zoneAnimator;
     [SerializeField] Animator attackAnimator;
 
@@ -22,20 +23,20 @@ public class ZoneBehaviour : MonoBehaviour
 
     public void PlayNextAttackClip()
     {
-        attackAnimator.Play(attackPatterns[count]);
-        ++count;
+        attackAnimator.Play(attackClips[clipCounter]);
+        ++clipCounter;
     }
 
     public void PlayNextAttackScript()
     {
-        doTweenAttacks[dCount].SetActive(true);
-        ++dCount;
+        attackDoTweens[doTweenCounter].SetActive(true);
+        ++doTweenCounter;
     }
 
     public void PlayerNextZone()
     {
-        zoneAnimator.Play(zonePatterns[zCount]);
-        ++zCount;
+        zoneAnimator.Play(zonePatterns[zoneCounter]);
+        ++zoneCounter;
     }
 
     public void AttackCycleEnd()

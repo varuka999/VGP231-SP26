@@ -204,7 +204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.y
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalRotation.w
@@ -249,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 9092038284198016143, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_Name
       value: AttackCycleParent_Placeholder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092038284198016143, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1961,7 +1965,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1969,7 +1973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2587,7 +2591,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2595,7 +2599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 1289565436129065495, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2632,6 +2636,10 @@ PrefabInstance:
     - target: {fileID: 9092038284198016143, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
       propertyPath: m_Name
       value: AttackCycleParent_Placeholder (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092038284198016143, guid: 1d856ec650dad834e83d7e1dc2850931, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
