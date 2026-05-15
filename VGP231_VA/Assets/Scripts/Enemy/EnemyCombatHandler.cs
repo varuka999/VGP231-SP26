@@ -22,12 +22,18 @@ public class EnemyCombatHandler : MonoBehaviour
         if (combatIndex == 0)
         {
             playerCombatHandler.CombatStart();
+
+            SphereCollider interactCollider = this.gameObject.GetComponent<SphereCollider>();
+            if (interactCollider != null)
+            {
+                radiusStart = interactCollider.radius;
+                interactCollider.radius = 50.0f;
+            }
         }
          
         inCombat = true;
         attackCycleGameObject[combatIndex].SetActive(true);
-        radiusStart = this.gameObject.GetComponent<SphereCollider>().radius;
-        this.gameObject.GetComponent<SphereCollider>().radius = 50.0f;
+
         ++combatIndex;
     }
 
@@ -39,6 +45,10 @@ public class EnemyCombatHandler : MonoBehaviour
 
     public void ResetInteractionCollider()
     {
-        this.gameObject.GetComponent<SphereCollider>().radius = radiusStart;
+        SphereCollider interactCollider = this.gameObject.GetComponent<SphereCollider>();
+        if (interactCollider != null)
+        {
+            interactCollider.radius = radiusStart;
+        }
     }
 }

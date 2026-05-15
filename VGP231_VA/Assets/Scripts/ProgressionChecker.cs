@@ -5,13 +5,12 @@ public class ProgressionChecker : MonoBehaviour
     private enum CheckType
     {
         DialogueCheck,
-        VolumeCheck
+        None
     }
 
-    [SerializeField] private CheckType checkType = CheckType.DialogueCheck;
+    [SerializeField] private CheckType checkType = CheckType.None;
 
     private DialogueSystem dialogueScript;
-    private TriggerVolume volumeScript;
 
     private void Start()
     {
@@ -20,9 +19,6 @@ public class ProgressionChecker : MonoBehaviour
             case CheckType.DialogueCheck:
                 dialogueScript = GetComponent<DialogueSystem>();
                 break;
-            case CheckType.VolumeCheck:
-                volumeScript = GetComponent<TriggerVolume>();
-                break;
         }
     }
 
@@ -30,14 +26,10 @@ public class ProgressionChecker : MonoBehaviour
     {
         switch (checkType)
         {
+            case CheckType.None:
+                break;
             case CheckType.DialogueCheck:
                 if(dialogueScript != null && !dialogueScript.IsDialogueActive)
-                {
-                    ProgressScene();
-                }
-                break;
-            case CheckType.VolumeCheck:
-                if(dialogueScript != null && volumeScript.VolumeConditionSatisfied)
                 {
                     ProgressScene();
                 }
@@ -45,7 +37,7 @@ public class ProgressionChecker : MonoBehaviour
         }
     }
 
-    private void ProgressScene()
+    public void ProgressScene()
     {
         ProgressionManager.Instance.IncrementProgression();
         this.enabled = false;

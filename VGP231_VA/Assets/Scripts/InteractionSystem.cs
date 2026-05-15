@@ -27,6 +27,7 @@ public class InteractionSystem : MonoBehaviour
     }
 
     private bool interactionComplete = false;
+    public bool InteractionComplete => interactionComplete;
 
     private void Update()
     {
