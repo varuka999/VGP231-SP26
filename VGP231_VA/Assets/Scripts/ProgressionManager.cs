@@ -9,6 +9,9 @@ public class ProgressionManager : MonoBehaviour
     [SerializeField] private UnityEvent[] progressionEvents;
     private int progressionIndex = 0;
 
+    [Header("DEBUG ONLY")]
+    [SerializeField] private int startAtProgressionIndex;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -19,11 +22,25 @@ public class ProgressionManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        if(startAtProgressionIndex > 0)
+        {
+            GoToProgression(startAtProgressionIndex);
+        }
     }
 
     public void IncrementProgression()
     {
         progressionEvents[progressionIndex]?.Invoke();
         ++progressionIndex;
+    }
+
+    private void GoToProgression(int GoToProgressionIndex)
+    {
+        for (int i = 0; i < GoToProgressionIndex; ++i)
+        {
+            progressionEvents[i].Invoke();
+            ++progressionIndex;
+        }
     }
 }
