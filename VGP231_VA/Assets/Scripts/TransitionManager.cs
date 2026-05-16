@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-1)]
 public class TransitionManager : MonoBehaviour
 {
     private enum TransitionTypes
@@ -39,6 +40,28 @@ public class TransitionManager : MonoBehaviour
 
         if (startSceneWithTransition)
         {
+            StartSceneTransition();
+        }
+    }
+
+    public void StartSceneTransition()
+    {
+        if (transitions.Length > 0)
+        {
+            Transition transition = transitionQueue.Peek();
+
+            if (transition.transitionType == TransitionTypes.Fade)
+            {
+                Image image = transition.transitionObject;
+
+                Color color = image.color;
+
+                // Start fully black immediately
+                color.a = 1f;
+
+                image.color = color;
+            }
+
             StartCoroutine(TransitionToScene(""));
         }
     }
