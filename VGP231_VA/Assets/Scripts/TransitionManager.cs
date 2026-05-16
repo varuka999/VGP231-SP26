@@ -50,6 +50,11 @@ public class TransitionManager : MonoBehaviour
 
     public IEnumerator TransitionToScene(string sceneToTransitionTo)
     {
+        if (transitionQueue.Count <= 0)
+        {
+            yield break;
+        }
+
         Transition transition = transitionQueue.Dequeue();
 
         yield return new WaitForSeconds(transition.transitionTriggerDelay);
