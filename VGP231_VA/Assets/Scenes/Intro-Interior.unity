@@ -1351,10 +1351,18 @@ MonoBehaviour:
   clipsToPlay:
   - {fileID: 8300000, guid: 5693c7bf43631c64ab3071c26136d7f8, type: 3}
   - {fileID: 8300000, guid: d9cc025fd517827449daa0ec9e62df71, type: 3}
+  - {fileID: 8300000, guid: 5bb849f27ff262240a1799d0c3614878, type: 3}
+  - {fileID: 8300000, guid: ec755df524e893f4bab9574eb62b3a31, type: 3}
   clipPositions:
   - {fileID: 266039001}
   - {fileID: 266039001}
-  - {fileID: 266039001}
+  - {fileID: 5920779229032263457}
+  - {fileID: 5920779229032263457}
+  clipDelays:
+  - 0
+  - 0
+  - 1
+  - 1
   clipVolume: 1
   playOnce: 1
   playAllAtOnce: 1
@@ -3712,6 +3720,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e768eb4916896e34c95cb2e1f882d743, type: 3}
   clipPositions:
   - {fileID: 1542287472}
+  clipDelays:
+  - 0
   clipVolume: 1
   playOnce: 1
   playAllAtOnce: 0
@@ -4258,6 +4268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+--- !u!4 &5920779229032263457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+  m_PrefabInstance: {fileID: 5920779229032263455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
