@@ -26,11 +26,12 @@ jobs:
           lfs: true
       - uses: actions/cache@v5
         with:
-          path: Library
+          path: VGP231_VA/Library
           key:
-            Library-StandaloneWindows64
+            Library-VGP231_VA-StandaloneWindows64-${{ hashFiles('VGP231_VA') }}
           restore-keys: |
-            Library-StandaloneWindows64-
+            Library-VGP231_VA-StandaloneWindows64-
+            Library-VGP231_VA-
             Library-
       - uses: game-ci/unity-builder@v5
         env:
@@ -38,9 +39,10 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
+          projectPath: VGP231_VA
           unityVersion: 6000.4.2f1
           targetPlatform: StandaloneWindows64 # Build a Windows 64-bit standalone.
       - uses: actions/upload-artifact@v7
         with:
-          name: win
+          name: 2DPlatformer-win
           path: build
