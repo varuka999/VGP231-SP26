@@ -44,5 +44,5 @@ jobs:
           targetPlatform: StandaloneWindows64 # Build a Windows 64-bit standalone.
       - uses: actions/upload-artifact@v7
         with:
-          name: 2DPlatformer-win
+          name: VGP231_VA-win
           path: build
