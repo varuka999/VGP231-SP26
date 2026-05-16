@@ -2061,6 +2061,10 @@ PrefabInstance:
       value: Mom
       objectReference: {fileID: 0}
     - target: {fileID: 4160134582392557974, guid: 881952eaccb041445b00930ca06f5091, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160134582392557974, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -2302,9 +2306,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4160134582392557974, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1500734703}
-    - targetCorrespondingSourceObject: {fileID: 300915903638899048, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 881952eaccb041445b00930ca06f5091, type: 3}
 --- !u!4 &1500734700 stripped
 Transform:
