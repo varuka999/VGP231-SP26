@@ -6086,6 +6086,10 @@ PrefabInstance:
       propertyPath: dialogueEntries.Array.data[8].isCombatTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7379875329200388088, guid: 881952eaccb041445b00930ca06f5091, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 67510b5cf75903e48973498cb9f0173a, type: 3}
     - target: {fileID: 7972578867723319148, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: triggerMode
       value: 1
@@ -9818,7 +9822,7 @@ PrefabInstance:
     - target: {fileID: 7379875329200388088, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 803d77024a79f724f8cba7728c80cc34, type: 3}
+      objectReference: {fileID: 21300000, guid: e076e396ef1949e42a658fb41e386951, type: 3}
     - target: {fileID: 7972578867723319148, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: triggerMode
       value: 1
@@ -10894,6 +10898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2473968981483479279, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6842914413706381934, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.16009
@@ -10932,6 +10940,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6842914413706381934, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
+      propertyPath: startAtProgressionIndex
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
