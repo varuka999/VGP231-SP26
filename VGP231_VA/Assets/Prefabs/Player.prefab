@@ -194,6 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7af34c4bedb4f4fbff0ce1d9538281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombatHandler
+  sceneName: Scenario-1
+  playerSprite: {fileID: 1289860461021524374}
+  damageFlashDuration: 0.15
 --- !u!1 &5871003851477078705
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +304,9 @@ MonoBehaviour:
   playerSpriteFront: {fileID: 21300000, guid: 40e40b1ec486eec45a0c1a03a51860b3, type: 3}
   playerSpriteBack: {fileID: 21300000, guid: 803d77024a79f724f8cba7728c80cc34, type: 3}
   rotationSpeed: 10
+  lockX: 0
+  lockY: 0
+  lockZ: 0
 --- !u!1001 &6579490591163383938
 PrefabInstance:
   m_ObjectHideFlags: 0

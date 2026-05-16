@@ -30,7 +30,7 @@ public class EnemyCombatHandler : MonoBehaviour
                 interactCollider.radius = 50.0f;
             }
         }
-
+         
         inCombat = true;
         attackCycleGameObject[combatIndex].SetActive(true);
 

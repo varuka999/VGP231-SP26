@@ -79,14 +79,7 @@ public class DialogueSystem : MonoBehaviour
             AudioManager.Instance.StopLoopingSound(talkingCharacterSource);
         }
 
-        if (isDialogueActive)
-        {
-            playerController.SetMove(false);
-        }
-        else if (!isDialogueActive)
-        {
-            playerController.SetMove(true);
-        }
+        playerController.SetMove(!isDialogueActive);
     }
 
     public void NextDialogue()
@@ -139,6 +132,7 @@ public class DialogueSystem : MonoBehaviour
         }
 
         isDialogueActive = true;
+
         TMP_Text targetText = textTargets[entry.targetIndex];
 
         if (typingRoutine != null)
