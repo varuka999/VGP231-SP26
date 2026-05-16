@@ -15,6 +15,8 @@ public class PlayerCombatHandler : MonoBehaviour
 
     private Color originalColor = Color.white;
     private Tween damageFlashTween = null;
+    public GameObject damageIndicator = null;
+    public Transform end;
 
     private void Awake()
     {
@@ -54,17 +56,24 @@ public class PlayerCombatHandler : MonoBehaviour
 
     private void PlayDamageFlash()
     {
-        if (playerSprite == null)
-        {
-            Debug.Log("Sprite Not Found");
-            return;
-        }
+        GameObject damageInd = Instantiate(
+            damageIndicator,
+            new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z),
+            Quaternion.identity,
+            this.gameObject.transform
+        );
 
-        damageFlashTween?.Kill();
+        damageFlashTween = damageInd.transform
+            .DOMove(new Vector3(end.position.x, end.position.y, end.position.z), 0.6f)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() => Delete(damageInd));
 
-        playerSprite.color = Color.red;
+        damageFlashTween.Play();
+    }
 
-        damageFlashTween = playerSprite.DOColor(originalColor, damageFlashDuration).SetEase(Ease.OutQuad);
+    void Delete(GameObject obj)
+    {
+        obj.SetActive(false);
     }
 
     private void PlayerDeath()

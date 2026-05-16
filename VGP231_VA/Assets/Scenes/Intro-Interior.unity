@@ -2110,7 +2110,7 @@ PrefabInstance:
       objectReference: {fileID: 5920779229032263456}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.size
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[0].text
@@ -2122,51 +2122,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[2].text
-      value: 'Fix stupid hikikomori son... '
+      value: '''Help'' your shut-in son... '
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[3].text
-      value: ' and get paid.'
+      value: ' and get paid'
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[4].text
-      value: Was that it or am I missing something?
+      value: That's all right?
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[5].text
-      value: No, that should be it.
+      value: No, no.. That should be it
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[6].text
-      value: Great, that shouldn't take too long. Just keep my payment ready.
+      value: This shouldn't take too long
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[7].text
-      value: I will.
+      value: 'Just remember... He''s a good kid. '
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[8].text
-      value: But...
+      value: Just needs someone that'll listen
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[9].text
-      value: Just remember...
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      propertyPath: dialogueEntries.Array.data[10].text
-      value: He's a good kid.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      propertyPath: dialogueEntries.Array.data[11].text
       value: (That's what they all say)
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      propertyPath: dialogueEntries.Array.data[12].text
+      propertyPath: dialogueEntries.Array.data[10].text
       value: Where is he?
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      propertyPath: dialogueEntries.Array.data[13].text
+      propertyPath: dialogueEntries.Array.data[11].text
       value: In the basement.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
+      propertyPath: dialogueEntries.Array.data[12].text
+      value: Just take the door down the hall.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
+      propertyPath: dialogueEntries.Array.data[13].text
+      value: Just take the door down the hall.
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[14].text
@@ -2214,19 +2214,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[9].targetIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[10].targetIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[11].targetIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[12].targetIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[13].targetIndex
@@ -3292,7 +3292,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 54.4
+  field of view: 25
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3318,8 +3318,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840832624}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.180687, y: 0.56056535, z: 0.18598145, w: -0.7864666}
-  m_LocalPosition: {x: -9.250004, y: 6.0810018, z: -0.2540021}
+  m_LocalRotation: {x: -0.054902058, y: 0.0000029459795, z: -0.00000016198457, w: -0.9984918}
+  m_LocalPosition: {x: -0.039951023, y: 1.69, z: -8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1308,6 +1308,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.5, y: 2.5, z: 6.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &338468421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 338468422}
+  m_Layer: 0
+  m_Name: End
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &338468422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338468421}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.869999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 374305889}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &373226735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1422,6 +1453,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2138440103054349123, guid: 217197c7a8ec0c34eb632aec8149048c, type: 3}
   m_PrefabInstance: {fileID: 373226735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &374305889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+  m_PrefabInstance: {fileID: 5920779229032263455}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &377588674
 PrefabInstance:
@@ -5234,7 +5270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91d3209f75d59e14f8972ddfc5f5aceb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91d3209f75d59e14f8972ddfc5f5aceb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6022,7 +6058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[4].isCombatTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[5].isCombatTrigger
@@ -6075,9 +6111,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4160134582392557974, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       insertIndex: 6
       addedObject: {fileID: 1030990113}
-    - targetCorrespondingSourceObject: {fileID: 300915903638899048, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 881952eaccb041445b00930ca06f5091, type: 3}
 --- !u!4 &1030990109 stripped
 Transform:
@@ -9646,7 +9679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[0].text
-      value: Hi!
+      value: Hey~
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[1].text
@@ -9654,7 +9687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[2].text
-      value: hi...?
+      value: Uh.. Hello?
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[3].text
@@ -9662,52 +9695,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[4].text
-      value: Excuse me?
+      value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[5].text
-      value: I am surprised she can still find girlfriends on that stupid classified
-        of hers
+      value: Should that matter?
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[6].text
-      value: I am not like the others
+      value: I'm just surprised she still tries
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[7].text
-      value: Sure, whatever you say
+      value: Not that I care. I find this entertaining in its own way
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[8].text
-      value: Is there something you want to do?
+      value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[9].text
-      value: You think I am pathetic right?
+      value: You think I'm pathetic?
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[10].text
-      value: Why would I?
+      value: I don't know you yet
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[11].text
-      value: They all do. Why won't you.
+      value: (Ugh this guy..)
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[12].text
-      value: ...
+      value: Just do as your told, and everything will go smoothly
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[13].text
-      value: If only you could live in my shoes.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
-      propertyPath: dialogueEntries.Array.data[14].text
       value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
+      propertyPath: dialogueEntries.Array.data[14].text
+      value: I'm sure you're hungry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[15].text
-      value: Just get me some ramen
+      value: There's ramen in on the back shelf
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[0].targetIndex
@@ -9735,7 +9767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[6].targetIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[7].targetIndex
@@ -9755,11 +9787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[11].targetIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[12].targetIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[13].targetIndex
@@ -9806,6 +9838,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4160134582392557974, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1500734703}
+    - targetCorrespondingSourceObject: {fileID: 300915903638899048, guid: 881952eaccb041445b00930ca06f5091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 881952eaccb041445b00930ca06f5091, type: 3}
 --- !u!4 &1500734700 stripped
 Transform:
@@ -10455,7 +10490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d0304bc987c71a4fba45c5535fe87b5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d0304bc987c71a4fba45c5535fe87b5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11595,8 +11630,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840832624}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.30274782, y: 0.0000028119684, z: -0.0000008932367, w: -0.95307076}
-  m_LocalPosition: {x: -0.03993929, y: 7.3600025, z: -10.290003}
+  m_LocalRotation: {x: -0.18476273, y: 0.0000028996326, z: -0.00000054512947, w: -0.9827832}
+  m_LocalPosition: {x: -0.039931327, y: 5.170002, z: -11.640002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12718,9 +12753,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3434501876631341388, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+      propertyPath: end
+      value: 
+      objectReference: {fileID: 338468422}
+    - target: {fileID: 3434501876631341388, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: playerSprite
       value: 
       objectReference: {fileID: 1407576265}
+    - target: {fileID: 3434501876631341388, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+      propertyPath: damageIndicator
+      value: 
+      objectReference: {fileID: 3910457515190140771, guid: 243914d6086bb9d4192a2476978b369a, type: 3}
     - target: {fileID: 3464682713232728274, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: m_Name
       value: Player
@@ -12731,7 +12774,10 @@ PrefabInstance:
       objectReference: {fileID: 1840832626}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 338468422}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2574935554930996710, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       insertIndex: -1
