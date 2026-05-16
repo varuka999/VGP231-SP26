@@ -27,13 +27,13 @@ public class SoundTrigger : MonoBehaviour
 
         if(!playAllAtOnce)
         {
-            PlaySoundWithDelay(AudioManager.Instance.GetRandomSound(clipsToPlay), clipPositions[0], clipVolume, clipDelays[0]);
+            StartCoroutine(PlaySoundWithDelay(AudioManager.Instance.GetRandomSound(clipsToPlay), clipPositions[0], clipVolume, clipDelays[0]));
             return;
         }
 
         for (int i = 0; i < clipsToPlay.Length; i++)
         {
-            PlaySoundWithDelay(clipsToPlay[i], clipPositions[i], clipVolume, clipDelays[i]);
+            StartCoroutine(PlaySoundWithDelay(clipsToPlay[i], clipPositions[i], clipVolume, clipDelays[i]));
         }
     }
 
