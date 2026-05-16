@@ -197,6 +197,8 @@ MonoBehaviour:
   sceneName: Scenario-1
   playerSprite: {fileID: 1289860461021524374}
   damageFlashDuration: 0.15
+  damageIndicator: {fileID: 0}
+  end: {fileID: 0}
 --- !u!1 &5871003851477078705
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +281,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 40e40b1ec486eec45a0c1a03a51860b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d92b35815064a564090929170d438869, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -301,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4816b9dabf4ced04c995aa3ad4a38677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteBillboard
-  playerSpriteFront: {fileID: 21300000, guid: 40e40b1ec486eec45a0c1a03a51860b3, type: 3}
-  playerSpriteBack: {fileID: 21300000, guid: 803d77024a79f724f8cba7728c80cc34, type: 3}
+  playerSpriteFront: {fileID: 21300000, guid: d92b35815064a564090929170d438869, type: 3}
+  playerSpriteBack: {fileID: 21300000, guid: 2705c3e400eff724a9566524e0ea848b, type: 3}
   rotationSpeed: 10
   lockX: 0
   lockY: 0
