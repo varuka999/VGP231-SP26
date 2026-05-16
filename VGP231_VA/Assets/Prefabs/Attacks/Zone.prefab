@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 635debd04782f8f4287764eb2db7a514, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,15 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBehaviour
   enemy: {fileID: 0}
   parent: {fileID: 0}
-  attackPatterns: []
   zonePatterns:
   - S1_P1_Z1
-  doTweenAttacks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  count: 0
-  zCount: 0
-  dCount: 0
+  attackClips: []
+  attackDoTweens: []
   zoneAnimator: {fileID: 4041832724987105404}
   attackAnimator: {fileID: 0}
