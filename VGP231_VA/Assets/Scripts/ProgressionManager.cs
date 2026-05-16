@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[DefaultExecutionOrder(0)]
 public class ProgressionManager : MonoBehaviour
 {
     private static ProgressionManager _instance;
@@ -33,6 +34,7 @@ public class ProgressionManager : MonoBehaviour
     {
         progressionEvents[progressionIndex]?.Invoke();
         ++progressionIndex;
+        //Debug.Log($"Incremented Progression Index: {progressionIndex}");
     }
 
     private void GoToProgression(int GoToProgressionIndex)

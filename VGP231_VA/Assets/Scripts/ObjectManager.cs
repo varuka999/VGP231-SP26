@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[DefaultExecutionOrder(-16)]
 public class ObjectManager : MonoBehaviour
 {
     private static ObjectManager _instance;
