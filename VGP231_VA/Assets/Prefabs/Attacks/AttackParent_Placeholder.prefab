@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2501456315715640988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackParent_Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6585587268429614277}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 6398767003374170199}
   - component: {fileID: 2910949142874782420}
   - component: {fileID: 3157521928838304082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DamageZoneIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

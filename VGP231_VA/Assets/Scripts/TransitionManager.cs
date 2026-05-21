@@ -124,6 +124,8 @@ public class TransitionManager : MonoBehaviour
 
         yield return new WaitForSeconds(transition.sceneTriggerDelay);
 
+        Debug.Log(sceneToTransitionTo);
+
         if(sceneToTransitionTo != string.Empty)
         {
             SwitchScene(sceneToTransitionTo);

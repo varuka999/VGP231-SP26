@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4618648460290895609}
   - component: {fileID: 4041832724987105404}
   - component: {fileID: 9017732440597537130}
-  m_Layer: 0
+  - component: {fileID: -6733533083258889470}
+  m_Layer: 6
   m_Name: Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,3 +136,24 @@ MonoBehaviour:
   attackDoTweens: []
   zoneAnimator: {fileID: 4041832724987105404}
   attackAnimator: {fileID: 0}
+--- !u!114 &-6733533083258889470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202258557305345090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e210e8b3faa3949bb6f5880da32090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteFlickerBook
+  sprites:
+  - {fileID: 21300000, guid: f0e5f28440ffd3848917acc30bc97220, type: 3}
+  - {fileID: 21300000, guid: 7db7ceb73bff4b24995f161265928f28, type: 3}
+  - {fileID: 21300000, guid: ccc4f395b6215f945953f2c3617dbfa2, type: 3}
+  - {fileID: 21300000, guid: 07340a15335ddca47a4633897abe0ad1, type: 3}
+  - {fileID: 21300000, guid: 2cf5b2e0b47edf84698abc631a880be7, type: 3}
+  flickerInterval: 0.1
+  loop: 1
+  playOnStart: 1

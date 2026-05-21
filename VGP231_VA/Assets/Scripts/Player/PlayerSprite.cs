@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerSprite : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerSprite : MonoBehaviour
     [SerializeField] private Sprite playerSpriteFront;
     [SerializeField] private Sprite playerSpriteBack;
 
+    //[SerializeField] private bool startFacingFront;
+
     [Header("Rotation")]
     private float targetYRotation;
     [SerializeField] private float rotationSpeed = 10f;
@@ -20,11 +23,29 @@ public class PlayerSprite : MonoBehaviour
     [SerializeField] private bool lockY = false;
     [SerializeField] private bool lockZ = false;
 
+    [Header("Turn Events")]
+    [SerializeField] private UnityEvent frontTurnEvents;
+    [SerializeField] private UnityEvent backTurnEvents;
+
+    [SerializeField] private bool enableTurnEvents = false;
+
+    private bool isFacingFront = false;
+    public bool IsFacingFront => isFacingFront;
+
     void Start()
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = transform.parent.GetComponent<PlayerController>();
+
+        //if(startFacingFront)
+        //{
+        //    FaceFront();
+        //}
+        //else
+        //{
+        //    FaceBack();
+        //}    
     }
 
     void LateUpdate()
@@ -37,15 +58,39 @@ public class PlayerSprite : MonoBehaviour
     {
         if (spriteRenderer == null) return;
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (isFacingFront && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
-            spriteRenderer.sprite = playerSpriteBack;
-            targetYRotation = 180f;
+            FaceBack();
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (!isFacingFront && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
         {
-            spriteRenderer.sprite = playerSpriteFront;
-            targetYRotation = 0f;
+            FaceFront();
+        }
+    }
+
+    public void FaceBack()
+    {
+        spriteRenderer.sprite = playerSpriteBack;
+        targetYRotation = 180f;
+
+        isFacingFront = false;
+
+        if(enableTurnEvents)
+        {
+            backTurnEvents?.Invoke();
+        }
+    }
+
+    public void FaceFront()
+    {
+        spriteRenderer.sprite = playerSpriteFront;
+        targetYRotation = 0f;
+
+        isFacingFront = true;
+
+        if(enableTurnEvents)
+        {
+            frontTurnEvents?.Invoke();
         }
     }
 
@@ -99,5 +144,20 @@ public class PlayerSprite : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void SetFrontFacingSprite(Sprite frontSprite)
+    {
+        playerSpriteFront = frontSprite;
+    }
+
+    public void SetBackFacingSprite(Sprite backSprite)
+    {
+        playerSpriteBack = backSprite;
+    }
+
+    public void SetTurnEvents(bool turnEvents)
+    {
+        enableTurnEvents = turnEvents;
     }
 }
