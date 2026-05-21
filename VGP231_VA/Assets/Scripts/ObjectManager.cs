@@ -26,4 +26,9 @@ public class ObjectManager : MonoBehaviour
     {
         gameObjectToDisable.SetActive(false);
     }
+
+    public void DestroyObject(GameObject gameObjectToDestroy)
+    {
+        Destroy(gameObjectToDestroy);
+    }
 }

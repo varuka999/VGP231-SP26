@@ -29,7 +29,7 @@ public class ProgressionChecker : MonoBehaviour
             case CheckType.None:
                 break;
             case CheckType.DialogueCheck:
-                if(dialogueScript != null && !dialogueScript.IsDialogueActive)
+                if(dialogueScript != null && dialogueScript.HasDialogueEnded)
                 {
                     ProgressScene();
                 }

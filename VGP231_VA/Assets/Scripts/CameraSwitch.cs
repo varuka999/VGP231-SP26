@@ -24,11 +24,16 @@ public class CameraSwitch : MonoBehaviour
 
     private void Update()
     {
-        if(triggerVolume.VolumeConditionSatisfied)
+        SwitchCameras();
+    }
+
+    public void SwitchCameras()
+    {
+        if (triggerVolume.VolumeConditionSatisfied)
         {
             CameraManager.Instance.SwitchCameras(fromCamera, toCamera);
         }
-        else if(!triggerVolume.VolumeConditionSatisfied && switchType == SwitchType.OnlyInVolume)
+        else if (!triggerVolume.VolumeConditionSatisfied && switchType == SwitchType.OnlyInVolume)
         {
             CameraManager.Instance.SwitchCameras(toCamera, fromCamera);
         }
