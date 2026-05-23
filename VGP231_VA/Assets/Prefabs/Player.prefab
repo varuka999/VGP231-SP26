@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 5761821716892162440}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,6 +309,13 @@ MonoBehaviour:
   lockX: 0
   lockY: 0
   lockZ: 0
+  frontTurnEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  backTurnEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  enableTurnEvents: 0
 --- !u!1001 &6579490591163383938
 PrefabInstance:
   m_ObjectHideFlags: 0

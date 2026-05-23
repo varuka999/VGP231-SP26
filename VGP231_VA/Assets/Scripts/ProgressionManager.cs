@@ -6,7 +6,7 @@ public class ProgressionManager : MonoBehaviour
     private static ProgressionManager _instance;
     public static ProgressionManager Instance { get { return _instance; } }
 
-    [SerializeField] private UnityEvent[] progressionEvents;
+    [SerializeField] private DelayableUnityEventArray[] progressionEventsDelayArray;
     private int progressionIndex = 0;
 
     [SerializeField] private bool startWithProgression = false;
@@ -24,12 +24,15 @@ public class ProgressionManager : MonoBehaviour
         {
             _instance = this;
         }
+    }
 
-        if(startAtProgressionIndex > 0)
+    private void Start()
+    {
+        if (startAtProgressionIndex > 0)
         {
             GoToProgression(startAtProgressionIndex);
         }
-        else if(startWithProgression)
+        else if (startWithProgression)
         {
             IncrementProgression();
         }
@@ -37,7 +40,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void IncrementProgression()
     {
-        progressionEvents[progressionIndex]?.Invoke();
+        RunDelayableUnityEventAtIndex(progressionIndex);
         ++progressionIndex;
     }
 
@@ -46,6 +49,14 @@ public class ProgressionManager : MonoBehaviour
         for (int i = 0; i < GoToProgressionIndex; ++i)
         {
             IncrementProgression();
+        }
+    }
+
+    public void RunDelayableUnityEventAtIndex(int index)
+    {
+        for(int i = 0; i < progressionEventsDelayArray[index].delaybleUnityEvents.Length; ++i)
+        {
+            DelayableUnityEventUtility.Invoke(this, progressionEventsDelayArray[index].delaybleUnityEvents[i]);
         }
     }
 }

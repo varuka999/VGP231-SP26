@@ -3,11 +3,13 @@ using UnityEngine.Events;
 
 public class TriggerVolume : MonoBehaviour
 {
+    [System.Serializable]
     public enum TriggerMode
     {
         Enter,
         Stay,
-        Exit
+        Exit,
+        None
     }
 
     [Header("Detection")]
@@ -68,5 +70,11 @@ public class TriggerVolume : MonoBehaviour
         {
             volumeConditionSatisfied = false;
         }
+    }
+
+    public void SetTriggerMode(int mode)
+    {
+        triggerMode = (TriggerMode)mode;
+        volumeConditionSatisfied = false;
     }
 }

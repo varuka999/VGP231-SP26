@@ -3,9 +3,14 @@ using UnityEngine;
 
 public static class DelayableUnityEventUtility
 {
-    public static IEnumerator Invoke(DelayableUnityEvent delayedEvent)
+    public static void Invoke(MonoBehaviour runner, DelayableUnityEvent delayedEvent)
     {
-        if (delayedEvent.delay > 0.0f)
+        runner.StartCoroutine(InvokeCoroutine(delayedEvent));
+    }
+
+    public static IEnumerator InvokeCoroutine(DelayableUnityEvent delayedEvent)
+    {
+        if (delayedEvent.delay > 0f)
         {
             yield return new WaitForSeconds(delayedEvent.delay);
         }

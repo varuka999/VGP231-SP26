@@ -10,3 +10,9 @@ public class DelayableUnityEvent
 
     public UnityEvent unityEvent;
 }
+
+[Serializable]
+public class DelayableUnityEventArray
+{
+    public DelayableUnityEvent[] delaybleUnityEvents;
+}
