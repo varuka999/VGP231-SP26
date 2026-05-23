@@ -1101,6 +1101,12 @@ MonoBehaviour:
   - text: will she survive?
     targetIndex: 0
     isCombatTrigger: 0
+  - text: Or better yet...
+    targetIndex: 0
+    isCombatTrigger: 0
+  - text: leave with a sane mind?
+    targetIndex: 0
+    isCombatTrigger: 0
   randomDialoguePool: []
   onDialogueEnd:
   - delay: 0

@@ -17814,7 +17814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: startAtProgressionIndex
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEvents.Array.size
