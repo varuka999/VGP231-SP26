@@ -50,7 +50,23 @@ public class DialogueSystem : MonoBehaviour
 
     //private bool dialogueStarted;
     private bool isDialogueActive;
-    public bool IsDialogueActive => isDialogueActive;
+    public bool IsDialogueActive
+    {
+        get => isDialogueActive;
+
+        private set
+        {
+            if (isDialogueActive == value)
+                return;
+
+            isDialogueActive = value;
+
+            if (playerController != null)
+            {
+                playerController.SetMove(!isDialogueActive);
+            }
+        }
+    }
 
     private bool hasDialogueEnded = false;
     public bool HasDialogueEnded => hasDialogueEnded;
@@ -92,7 +108,7 @@ public class DialogueSystem : MonoBehaviour
             AudioManager.Instance.StopLoopingSound(talkingCharacterSource);
         }
 
-        playerController.SetMove(!isDialogueActive);
+        //playerController.SetMove(!IsDialogueActive);
     }
 
     public void PlayRandomDialogue(int randomDialoguePoolIndex)
@@ -139,7 +155,7 @@ public class DialogueSystem : MonoBehaviour
         }
 
         ClearAllText();
-        isDialogueActive = false;
+        IsDialogueActive = false;
     }
 
     public void NextDialogue()
@@ -155,7 +171,7 @@ public class DialogueSystem : MonoBehaviour
         if (currentDialogueIndex >= dialogueEntries.Length)
         {
             Debug.Log("End of Dialogue!");
-            isDialogueActive = false;
+            IsDialogueActive = false;
             hasDialogueEnded = true;
 
             if (enemyCombatHandler != null)
@@ -165,7 +181,7 @@ public class DialogueSystem : MonoBehaviour
 
             for (int i = 0; i < onDialogueEnd.Length; ++i)
             {
-                StartCoroutine(DelayableUnityEventUtility.Invoke(onDialogueEnd[i]));
+                DelayableUnityEventUtility.Invoke(this, onDialogueEnd[i]);
             }
 
             return;
@@ -181,7 +197,7 @@ public class DialogueSystem : MonoBehaviour
             }
             else if (entry.isCombatTrigger)
             {
-                isDialogueActive = false;
+                IsDialogueActive = false;
                 entry.isCombatTrigger = false;
                 Debug.Log("Combat Start from Dialogue Trigger!");
                 enemyCombatHandler.CombatCycle();
@@ -208,7 +224,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void PlayDialogue(DialogueEntry entry)
     {
-        isDialogueActive = true;
+        IsDialogueActive = true;
 
         TMP_Text targetText = textTargets[entry.targetIndex];
 

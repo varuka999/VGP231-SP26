@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class AnimationTrigger : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private string trigger;
+    [SerializeField] private float triggerDelay = 0.0f;
 
     private bool animationTriggered = false;
 
@@ -18,8 +20,15 @@ public class AnimationTrigger : MonoBehaviour
     {
         if(triggerVolume.VolumeConditionSatisfied && !animationTriggered)
         {
-            animationTriggered = true;
-            animator.SetTrigger(trigger);
+            StartCoroutine(TriggerAnimation());
         }
+    }
+
+    IEnumerator TriggerAnimation()
+    {
+        yield return new WaitForSeconds(triggerDelay);
+
+        animationTriggered = true;
+        animator.SetTrigger(trigger);
     }
 }

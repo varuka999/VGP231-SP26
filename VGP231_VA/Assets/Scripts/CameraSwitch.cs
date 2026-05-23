@@ -19,23 +19,36 @@ public class CameraSwitch : MonoBehaviour
 
     private void Start()
     {
-        triggerVolume = GetComponent<TriggerVolume>();
+        TryGetComponent(out triggerVolume);
     }
 
     private void Update()
     {
-        SwitchCameras();
+        if(triggerVolume != null)
+        {
+            SwitchCameras();
+        }
     }
 
     public void SwitchCameras()
     {
         if (triggerVolume.VolumeConditionSatisfied)
         {
-            CameraManager.Instance.SwitchCameras(fromCamera, toCamera);
+            SwitchForward();
         }
         else if (!triggerVolume.VolumeConditionSatisfied && switchType == SwitchType.OnlyInVolume)
         {
-            CameraManager.Instance.SwitchCameras(toCamera, fromCamera);
+            SwitchBackward();
         }
+    }
+
+    public void SwitchForward()
+    {
+        CameraManager.Instance.SwitchCameras(fromCamera, toCamera);
+    }
+
+    public void SwitchBackward()
+    {
+        CameraManager.Instance.SwitchCameras(toCamera, fromCamera);
     }
 }
