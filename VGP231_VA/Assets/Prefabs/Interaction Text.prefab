@@ -108,7 +108,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press E
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e07596a3e46437f4a8507a41753d6a9f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
   m_sharedMaterial: {fileID: -2373347360063839918, guid: e07596a3e46437f4a8507a41753d6a9f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -178,6 +178,6 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 7878227587538383764}
   m_maskType: 0

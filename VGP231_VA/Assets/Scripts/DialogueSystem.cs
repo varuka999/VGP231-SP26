@@ -77,6 +77,9 @@ public class DialogueSystem : MonoBehaviour
     private PlayerController playerController;
     private EnemyCombatHandler enemyCombatHandler = null;
 
+    // Flags
+    private bool textCleared = false;
+
     private void Start()
     {
         if (volumeScript == null)
@@ -94,11 +97,14 @@ public class DialogueSystem : MonoBehaviour
         {
             if (volumeScript.PlayerInside)
             {
+                textCleared = false;
+
                 // assuming 0 for simplicity
                 textTargets[0].text = interactText;
             }
-            else
+            else if(!textCleared)
             {
+                textCleared = true;
                 ClearAllText();
             }
         }
