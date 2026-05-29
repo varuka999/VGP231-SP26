@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7217898958154020136}
   - component: {fileID: 669787453574379910}
   - component: {fileID: 7252751475345298452}
+  - component: {fileID: 1807147778262585652}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
     ambience:
       audioClip: {fileID: 8300000, guid: 19e5dac47b8699346bbf32846a0f6be9, type: 3}
       volume: 1
+  crossfadeDuration: 2
 --- !u!114 &7217898958154020136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2be19bd12530b4488ce816cca0fd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  progressionEvents: []
+  progressionEventsDelayArray: []
+  startWithProgression: 0
+  startAtProgressionIndex: 0
 --- !u!114 &669787453574379910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +140,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6604ce72181829d4ba283f41a906d7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionManager
+  transitions: []
+  startSceneWithTransition: 0
+--- !u!114 &1807147778262585652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473968981483479279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9134eded2c4a2aa43b0d3a7698f26a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DebugManager
+  isDebug: 1

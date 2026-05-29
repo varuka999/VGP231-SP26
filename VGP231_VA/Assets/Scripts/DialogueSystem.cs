@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -102,7 +103,7 @@ public class DialogueSystem : MonoBehaviour
                 // assuming 0 for simplicity
                 textTargets[0].text = interactText;
             }
-            else if(!textCleared)
+            else if (!textCleared)
             {
                 textCleared = true;
                 ClearAllText();
@@ -155,7 +156,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void EndDialogue()
     {
-        if(typingRoutine != null)
+        if (typingRoutine != null)
         {
             return;
         }
@@ -174,6 +175,52 @@ public class DialogueSystem : MonoBehaviour
 
         ClearAllText();
 
+        if (EndOfDialogueCheck())
+        {
+            return;
+        }
+
+        DialogueEntry entry = dialogueEntries[currentDialogueIndex];
+
+        if (CombatTriggerCheck(entry))
+        {
+            return;
+        }
+
+        if (DebugManager.Instance.IsDebug)
+        {
+            while (!entry.isCombatTrigger && currentDialogueIndex < dialogueEntries.Length)
+            {
+                ++currentDialogueIndex;
+                if (currentDialogueIndex < dialogueEntries.Length)
+                {
+                    entry = dialogueEntries[currentDialogueIndex];
+                }
+            }
+
+            if (EndOfDialogueCheck())
+            {
+                return;
+            }
+
+            if (CombatTriggerCheck(entry))
+            {
+                return;
+            }
+        }
+
+        if (entry.targetIndex < 0 || entry.targetIndex >= textTargets.Length)
+        {
+            Debug.LogWarning("Invalid target index on dialogue entry " + currentDialogueIndex);
+            currentDialogueIndex++;
+            return;
+        }
+
+        PlayDialogue(entry);
+    }
+
+    private bool EndOfDialogueCheck()
+    {
         if (currentDialogueIndex >= dialogueEntries.Length)
         {
             Debug.Log("End of Dialogue!");
@@ -190,42 +237,30 @@ public class DialogueSystem : MonoBehaviour
                 DelayableUnityEventUtility.Invoke(this, onDialogueEnd[i]);
             }
 
-            return;
+            return true;
         }
 
-        DialogueEntry entry = dialogueEntries[currentDialogueIndex];
+        return false;
+    }
 
+    private bool CombatTriggerCheck(DialogueEntry entry)
+    {
         if (enemyCombatHandler != null)
         {
             if (enemyCombatHandler.InCombat)
             {
-                return;
+                return true;
             }
             else if (entry.isCombatTrigger)
             {
                 IsDialogueActive = false;
                 entry.isCombatTrigger = false;
-                Debug.Log("Combat Start from Dialogue Trigger!");
+                Debug.Log("Combat Start from Dialogue Trigger1!");
                 enemyCombatHandler.CombatCycle();
-                return;
+                return true;
             }
         }
-
-        if (entry.targetIndex < 0 || entry.targetIndex >= textTargets.Length)
-        {
-            Debug.LogWarning("Invalid target index on dialogue entry " + currentDialogueIndex);
-            currentDialogueIndex++;
-            return;
-        }
-
-        PlayDialogue(entry);
-
-        if (enemyCombatHandler != null && entry.isCombatTrigger)
-        {
-            Debug.Log("Combat Start from Dialogue Trigger!");
-            enemyCombatHandler.CombatCycle();
-            return;
-        }
+        return false;
     }
 
     private void PlayDialogue(DialogueEntry entry)
@@ -239,7 +274,7 @@ public class DialogueSystem : MonoBehaviour
 
         typingRoutine = StartCoroutine(TypeText(targetText, entry.text));
 
-        if(characterTalkingClips.Length > 0)
+        if (characterTalkingClips.Length > 0)
         {
             talkingCharacterSource = AudioManager.Instance.PlayLoopingSound(
             AudioManager.Instance.GetRandomSound(characterTalkingClips[entry.targetIndex].clips),
