@@ -64,17 +64,25 @@ public class DoTweener : MonoBehaviour
         }
     }
 
-    public void PlayTweenQueueEvent()
+    public void PlayTweenQueueEvent(int queueCount = 1)
     {
         BuildQueue();
 
         StartCoroutine(PlayTweenQueue());
     }
 
-    public IEnumerator PlayTweenQueue()
+    public IEnumerator PlayTweenQueue(int queueCount = 1)
     {
-        while (tweenQueue.Count > 0)
+        int count = queueCount;
+
+        while (count > 0)
         {
+            if (tweenQueue.Count == 0)
+            {
+                yield break;
+            }
+
+            --count;
             TweenEntry currentTween = tweenQueue.Dequeue();
 
             Transform target = currentTween.targetTransform;
