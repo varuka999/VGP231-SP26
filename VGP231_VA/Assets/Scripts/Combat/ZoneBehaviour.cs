@@ -10,6 +10,7 @@ public class ZoneBehaviour : MonoBehaviour
     [SerializeField] List<string> zonePatterns = new List<string>();
     [SerializeField] List<string> attackClips = new List<string>();
     [SerializeField] List<GameObject> attackDoTweens = new List<GameObject>();
+    [SerializeField] private List<GameObject> objectiveGameObjects = new List<GameObject>();
     private int zoneCounter = 0;
     private int clipCounter = 0;
     private int doTweenCounter = 0;
@@ -18,6 +19,8 @@ public class ZoneBehaviour : MonoBehaviour
 
     void OnEnable()
     {
+        enemy.SetCurrentZone(this);
+        enemy.SetObjectiveCounter(objectiveGameObjects.Count);
         PlayerNextZone();
     }
 
@@ -43,5 +46,11 @@ public class ZoneBehaviour : MonoBehaviour
     {
         enemy.CombatCycleEnd();
         parent.gameObject.SetActive(false);
+    }
+
+    public void EndAttackEarly()
+    {
+        zoneAnimator.CrossFade("New State", 0.1f);
+        AttackCycleEnd();
     }
 }

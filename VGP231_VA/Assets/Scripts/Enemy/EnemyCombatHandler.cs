@@ -15,6 +15,11 @@ public class EnemyCombatHandler : MonoBehaviour
     private bool isCombatFinished => combatIndex >= attackCycleGameObject.Count && !isInEncounter;
     public bool IsCombatFinished => isCombatFinished;
 
+    [SerializeField] private ZoneBehaviour currentZone = null;
+    public ZoneBehaviour CurrentZone => currentZone;
+
+    [SerializeField] private int objectiveCounter = 0;
+
     private float radiusStart = 0;
     private PlayerCombatHandler playerCombatHandler = null;
 
@@ -38,7 +43,7 @@ public class EnemyCombatHandler : MonoBehaviour
                 interactCollider.radius = 50.0f;
             }
         }
-         
+
         inCombat = true;
         attackCycleGameObject[combatIndex].SetActive(true);
 
@@ -62,6 +67,26 @@ public class EnemyCombatHandler : MonoBehaviour
         if (interactCollider != null)
         {
             interactCollider.radius = radiusStart;
+        }
+    }
+
+    public void SetCurrentZone(ZoneBehaviour zone)
+    {
+        currentZone = zone;
+    }
+
+    public void SetObjectiveCounter(int value)
+    {
+        objectiveCounter = value;
+    }
+
+    public void ReduceObjectiveCounter()
+    {
+        --objectiveCounter;
+
+        if (objectiveCounter == 0)
+        {
+            currentZone.EndAttackEarly();
         }
     }
 }
