@@ -751,7 +751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[6].text
-      value: End of Playtest
+      value: End of Playtest. Alt + F4
       objectReference: {fileID: 0}
     - target: {fileID: 7333351678017638545, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: dialogueEntries.Array.data[7].text
