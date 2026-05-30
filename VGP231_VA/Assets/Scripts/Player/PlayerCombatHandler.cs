@@ -37,7 +37,7 @@ public class PlayerCombatHandler : MonoBehaviour
 
     public void CombatStart()
     {
-        healthCounter = 3;
+        healthCounter = 5;
     }
 
     private void TakeDamage()
