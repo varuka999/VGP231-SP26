@@ -44,6 +44,8 @@ public class DoTweener : MonoBehaviour
     [SerializeField] private bool destroyAtQueueEnd = true;
     [SerializeField] private bool useLocalTransform = true;
 
+    private bool queueBuilt = false;
+
     private void Start()
     {
         BuildQueue();
@@ -54,25 +56,15 @@ public class DoTweener : MonoBehaviour
         }
     }
 
-    private void BuildQueue()
-    {
-        tweenQueue.Clear();
-
-        foreach (TweenEntry entry in tweenEntries)
-        {
-            tweenQueue.Enqueue(entry);
-        }
-    }
-
     public void PlayTweenQueueEvent(int queueCount = 1)
     {
-        BuildQueue();
-
         StartCoroutine(PlayTweenQueue());
     }
 
     public IEnumerator PlayTweenQueue(int queueCount = 1)
     {
+        BuildQueue();
+
         int count = queueCount;
 
         while (count > 0)
@@ -209,6 +201,21 @@ public class DoTweener : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }
+    }
+
+    private void BuildQueue()
+    {
+        if (queueBuilt)
+            return;
+
+        queueBuilt = true;
+
+        tweenQueue.Clear();
+
+        foreach (TweenEntry entry in tweenEntries)
+        {
+            tweenQueue.Enqueue(entry);
         }
     }
 
