@@ -2279,8 +2279,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e07596a3e46437f4a8507a41753d6a9f, type: 2}
-  m_sharedMaterial: {fileID: -2373347360063839918, guid: e07596a3e46437f4a8507a41753d6a9f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
+  m_sharedMaterial: {fileID: 5602218995060935632, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2304,8 +2304,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4015,6 +4015,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1079136132657148932, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5602218995060935632, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
     - target: {fileID: 1274320256894884159, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

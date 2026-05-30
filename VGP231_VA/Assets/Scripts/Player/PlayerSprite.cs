@@ -32,7 +32,7 @@ public class PlayerSprite : MonoBehaviour
     private bool isFacingFront = false;
     public bool IsFacingFront => isFacingFront;
 
-    void Start()
+    private void Awake()
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -45,7 +45,7 @@ public class PlayerSprite : MonoBehaviour
         //else
         //{
         //    FaceBack();
-        //}    
+        //}       
     }
 
     void LateUpdate()
