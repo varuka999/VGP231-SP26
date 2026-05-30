@@ -28,7 +28,7 @@ public class ProgressionManager : MonoBehaviour
 
     private void Start()
     {
-        if (startAtProgressionIndex > 0)
+        if (startAtProgressionIndex > 0 && DebugManager.Instance.IsDebug)
         {
             GoToProgression(startAtProgressionIndex);
         }
