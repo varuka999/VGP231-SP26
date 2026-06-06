@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float deceleration = 15f;
 
     private bool disableMove = false;
+    [SerializeField] private bool enableJitter = false;
 
     [Header("References")]
     public Camera cam;
@@ -106,9 +107,9 @@ public class PlayerController : MonoBehaviour
         {
             velocity = Vector3.zero;
 
-            if (rb != null)
+            if (rb != null && !enableJitter)
             {
-                rb.linearVelocity = new Vector3(0.0f, rb.linearVelocity.y, 0.0f);
+               //rb.linearVelocity = new Vector3(0.0f, rb.linearVelocity.y, 0.0f);
             }
         }
     }
