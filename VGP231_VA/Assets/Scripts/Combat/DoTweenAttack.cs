@@ -8,6 +8,7 @@ public enum MovementProfile
     Straight,
     VerticalArc,
     HorizontalArc,
+    Final,
 }
 
 public class DoTweenAttack : MonoBehaviour
@@ -33,7 +34,9 @@ public class DoTweenAttack : MonoBehaviour
             case MovementProfile.VerticalArc:
                 break;
             case MovementProfile.HorizontalArc:
-                HorizontalArc2();
+                break;
+            case MovementProfile.Final:
+                Final();
                 break;
             default:
                 break;
@@ -64,6 +67,30 @@ public class DoTweenAttack : MonoBehaviour
         seq.Append(gameObject.transform.DOMove(new Vector3(end.position.x, end.position.y, end.position.z), duration)).SetEase(easeType).OnComplete(Delete);
 
         seq.Play();
+    }
+
+    public void Final()
+    {
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(
+            transform.DOShakePosition(
+                1.5f,                      // shake duration
+                new Vector3(0.25f, 0f, 0f),  // shake strength/direction
+                100,                         // vibrato: how many shakes
+                90f,                        // randomness
+                false,                      // snapping
+                true                        // fade out
+            )
+        );
+
+        seq.Append(
+            transform.DOMove(
+                new Vector3(end.position.x, end.position.y, end.position.z),
+                duration
+            )
+            .SetEase(easeType)
+        );
     }
 
     public void HorizontalArc()
