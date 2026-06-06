@@ -84,7 +84,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.1007733
+  m_Radius: 1.2
   m_Height: 6.079422
   m_Direction: 1
   m_Center: {x: -0.21973263, y: 0.21970989, z: -2.6330083e-10}
@@ -324,6 +324,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3001790252846956585}
     m_Modifications:
+    - target: {fileID: 5395383069741701565, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5602218995060935632, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
     - target: {fileID: 6137392669795334317, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -404,6 +408,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6176360665133937798, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5602218995060935632, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
     - target: {fileID: 8715320612546868580, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
       propertyPath: m_Name
       value: PlayerDialogue (TMP)
