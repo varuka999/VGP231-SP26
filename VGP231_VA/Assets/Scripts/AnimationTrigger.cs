@@ -18,10 +18,15 @@ public class AnimationTrigger : MonoBehaviour
 
     private void Update()
     {
-        if(triggerVolume.VolumeConditionSatisfied && !animationTriggered)
+        if(triggerVolume != null && triggerVolume.VolumeConditionSatisfied && !animationTriggered)
         {
             StartCoroutine(TriggerAnimation());
         }
+    }
+
+    public void TriggerAnimationEvent()
+    {
+        StartCoroutine(TriggerAnimation());
     }
 
     IEnumerator TriggerAnimation()

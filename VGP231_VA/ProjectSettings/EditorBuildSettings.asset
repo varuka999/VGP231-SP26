@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenario-3.unity
     guid: 5db2a94a0d2ee554b9e4f6a38db9f877
+  - enabled: 1
+    path: Assets/Scenes/Ending-Scenario.unity
+    guid: 7a71b2304c6222b45b1b6a0d3fd687ce
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
