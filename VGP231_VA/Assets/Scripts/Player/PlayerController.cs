@@ -8,28 +8,18 @@ public class PlayerController : MonoBehaviour
     public float deceleration = 15f;
 
     private bool disableMove = false;
-    [SerializeField] private bool enableJitter = false;
 
     [Header("References")]
     public Camera cam;
-    [SerializeField] private Rigidbody rb = null;
 
-    private Vector3 velocity = Vector3.zero;
+    private Vector3 velocity;
     public Vector3 Velocity => velocity;
-
-    private Vector2 moveInput = Vector2.zero;
+    private Vector2 moveInput;
 
     void Start()
     {
         if (cam == null)
-        {
             cam = Camera.main;
-        }
-
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody>();
-        }
     }
 
     void Update()
@@ -38,38 +28,22 @@ public class PlayerController : MonoBehaviour
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
         );
-    }
 
-    void FixedUpdate()
-    {
-        HandleMovement();
+        if (!disableMove)
+        {
+            HandleMovement();
+        }
     }
 
     void HandleMovement()
     {
-        if (rb == null)
-        {
-            return;
-        }
-
-        if (disableMove)
-        {
-            velocity = Vector3.MoveTowards(
-                velocity,
-                Vector3.zero,
-                deceleration * Time.fixedDeltaTime
-            );
-
-            rb.linearVelocity = new Vector3(0.0f, rb.linearVelocity.y, 0.0f);
-            return;
-        }
-
+        // Get camera directions
         Vector3 camForward = cam.transform.forward;
         Vector3 camRight = cam.transform.right;
 
         // Flatten them so we don't move vertically
-        camForward.y = 0.0f;
-        camRight.y = 0.0f;
+        camForward.y = 0;
+        camRight.y = 0;
 
         camForward.Normalize();
         camRight.Normalize();
@@ -77,40 +51,22 @@ public class PlayerController : MonoBehaviour
         // Convert input into camera-relative direction
         Vector3 moveDir = camRight * moveInput.x + camForward * moveInput.y;
 
-        if (moveDir.sqrMagnitude > 1.0f)
-        {
-            moveDir.Normalize();
-        }
-
         Vector3 targetVelocity = moveDir * moveSpeed;
 
-        float rate = moveInput.magnitude > 0.01f ? acceleration : deceleration;
+        if (moveInput.magnitude > 0.01f)
+        {
+            velocity = Vector3.Lerp(velocity, targetVelocity, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            velocity = Vector3.Lerp(velocity, Vector3.zero, deceleration * Time.deltaTime);
+        }
 
-        velocity = Vector3.MoveTowards(
-            velocity,
-            targetVelocity,
-            rate * Time.fixedDeltaTime
-        );
-
-        rb.linearVelocity = new Vector3(
-            velocity.x,
-            rb.linearVelocity.y,
-            velocity.z
-        );
+        transform.position += velocity * Time.deltaTime;
     }
 
     public void SetMove(bool move)
     {
         disableMove = !move;
-
-        if (disableMove)
-        {
-            velocity = Vector3.zero;
-
-            if (rb != null && !enableJitter)
-            {
-               //rb.linearVelocity = new Vector3(0.0f, rb.linearVelocity.y, 0.0f);
-            }
-        }
     }
 }
