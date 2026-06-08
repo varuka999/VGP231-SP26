@@ -20,20 +20,25 @@ public class AnimationTrigger : MonoBehaviour
     {
         if(triggerVolume != null && triggerVolume.VolumeConditionSatisfied && !animationTriggered)
         {
-            StartCoroutine(TriggerAnimation());
+            StartCoroutine(TriggerAnimation(trigger));
         }
     }
 
     public void TriggerAnimationEvent()
     {
-        StartCoroutine(TriggerAnimation());
+        StartCoroutine(TriggerAnimation(trigger));
     }
 
-    IEnumerator TriggerAnimation()
+    public void TriggerAnimationEvent(string triggerName)
+    {
+        StartCoroutine(TriggerAnimation(triggerName));
+    }
+
+    IEnumerator TriggerAnimation(string triggerName)
     {
         yield return new WaitForSeconds(triggerDelay);
 
         animationTriggered = true;
-        animator.SetTrigger(trigger);
+        animator.SetTrigger(triggerName);
     }
 }

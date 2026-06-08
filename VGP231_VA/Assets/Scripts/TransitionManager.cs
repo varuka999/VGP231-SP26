@@ -33,6 +33,9 @@ public class TransitionManager : MonoBehaviour
 
     private Transform playerTransform;
 
+    // just for debugging purposes
+    private int transitionIndex;
+
     private void Awake()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
@@ -78,6 +81,7 @@ public class TransitionManager : MonoBehaviour
             yield break;
         }
 
+        ++transitionIndex;
         Transition transition = transitionQueue.Dequeue();
 
         yield return new WaitForSeconds(transition.transitionTriggerDelay);
