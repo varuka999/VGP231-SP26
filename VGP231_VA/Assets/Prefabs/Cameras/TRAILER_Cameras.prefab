@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2543187110996045550}
   m_Layer: 0
-  m_Name: TRAILER_EXT_Cameras
+  m_Name: TRAILER_Cameras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
