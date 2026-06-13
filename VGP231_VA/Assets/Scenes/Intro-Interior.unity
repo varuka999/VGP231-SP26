@@ -1489,7 +1489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1130985089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,7 +2077,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 11963415058201244, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 300915903638899048, guid: 881952eaccb041445b00930ca06f5091, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2685,7 +2685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13dc25e2c1a37c7478516b7604b7f3f0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13dc25e2c1a37c7478516b7604b7f3f0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2710,6 +2710,10 @@ PrefabInstance:
     - target: {fileID: 5628001488927733817, guid: 13dc25e2c1a37c7478516b7604b7f3f0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011513551227608069, guid: 13dc25e2c1a37c7478516b7604b7f3f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.874
       objectReference: {fileID: 0}
     - target: {fileID: 7104354958011796834, guid: 13dc25e2c1a37c7478516b7604b7f3f0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3339,7 +3343,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 38.4
+  field of view: 25
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3365,8 +3369,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840832624}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.22398466, y: -0.6618223, z: 0.2175001, w: -0.68155396}
-  m_LocalPosition: {x: -16.62, y: 9.706, z: -0.00999999}
+  m_LocalRotation: {x: -0.054902058, y: 0.0000029459795, z: -0.00000016198457, w: -0.9984918}
+  m_LocalPosition: {x: -0.039951023, y: 1.69, z: -8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4879,7 +4883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &5069044777313768194
 SpriteRenderer:
   serializedVersion: 2
@@ -4963,17 +4967,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 5602218995060935632, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
+    - target: {fileID: 1289860461021524374, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2705c3e400eff724a9566524e0ea848b, type: 3}
     - target: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.276
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.75
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 3001790252846956585, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5067,7 +5075,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 1626404310996866188}
-  animations: []
+  animations:
+  - {fileID: 7400000, guid: 8cc14bd75a13ee64e99e9970779770d5, type: 2}
+  - {fileID: 7400000, guid: 4444e1b266218654385e22d558224961, type: 2}
+  - {fileID: 7400000, guid: e28016ea5390dc241a20f723b21c11da, type: 2}
   animName: TRAILER_EXT_1
   PlayCamera: 0
 --- !u!4 &8828868818729847842

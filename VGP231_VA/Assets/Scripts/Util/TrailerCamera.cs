@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrailerCamera : MonoBehaviour
 {
     public Animator animator;
-    public List<Animation> animations = new List<Animation>();
+    public List<AnimationClip> animations = new List<AnimationClip>();
     public string animName;
     public bool PlayCamera;
 
