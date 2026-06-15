@@ -1220,7 +1220,7 @@ MonoBehaviour:
     easeType: 10
   - targetTransform: {fileID: 260369950}
     tweenType: 1
-    value: {x: 0, y: -0.25, z: 0}
+    value: {x: 0, y: -1, z: 0}
     duration: 1
     delay: 0
     easeType: 10
@@ -11266,6 +11266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392280940}
   - component: {fileID: 1392280941}
+  - component: {fileID: 1392280942}
   m_Layer: 0
   m_Name: CinemachineCamera-Kitchen-1
   m_TagString: Untagged
@@ -11331,6 +11332,30 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1392280942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392280939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1403526594
 GameObject:
   m_ObjectHideFlags: 0
@@ -13544,7 +13569,7 @@ MonoBehaviour:
     value: {x: 0, y: 135, z: 0}
     duration: 1.5
     delay: 0
-    easeType: 25
+    easeType: 24
   playOnStart: 0
   destroyAtQueueEnd: 0
   useLocalTransform: 1
@@ -14968,7 +14993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelay.Array.data[0].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -15349,7 +15374,7 @@ PrefabInstance:
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 5920779229032263457}
+      objectReference: {fileID: 1697087398}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -15636,7 +15661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetFrontFacingSprite
+      value: DisableObject
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -15812,7 +15837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: PlayerSprite, Assembly-CSharp
+      value: ObjectManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -16033,7 +16058,7 @@ PrefabInstance:
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 9689dfca994f15e40a1ee22edca4cb3d, type: 3}
+      objectReference: {fileID: 310699364}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
@@ -16192,7 +16217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Sprite, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7217898958154020136, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: progressionEventsDelayArray.Array.data[3].delaybleUnityEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -18248,6 +18273,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1697087398}
+          m_TargetAssemblyTypeName: ObjectManager, Assembly-CSharp
+          m_MethodName: EnableObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 310699364}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 2109084966}
           m_TargetAssemblyTypeName: AnimationTrigger, Assembly-CSharp
           m_MethodName: TriggerAnimationEvent
@@ -19412,6 +19449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSprite
   playerSpriteFront: {fileID: 21300000, guid: 9689dfca994f15e40a1ee22edca4cb3d, type: 3}
   playerSpriteBack: {fileID: 21300000, guid: e076e396ef1949e42a658fb41e386951, type: 3}
+  normalSpriteMat: {fileID: 0}
+  hitSpriteMat: {fileID: 0}
   rotationSpeed: 10
   lockX: 0
   lockY: 0
@@ -20560,6 +20599,10 @@ PrefabInstance:
     - target: {fileID: 5761821716892162440, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
       propertyPath: frontTurnEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5871003851477078705, guid: de4a8c9b31369bb40ae74d7f6926dc86, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

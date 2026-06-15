@@ -8,6 +8,9 @@ using UnityEngine.UI;
 [DefaultExecutionOrder(-1)]
 public class TransitionManager : MonoBehaviour
 {
+    private static TransitionManager _instance;
+    public static TransitionManager Instance { get { return _instance; } }
+
     private enum TransitionTypes
     {
         Fade,
@@ -38,6 +41,16 @@ public class TransitionManager : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+        }
+
         playerTransform = GameObject.FindWithTag("Player").transform;
         transitionQueue = new Queue<Transition>(transitions);
 

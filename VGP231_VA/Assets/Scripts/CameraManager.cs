@@ -13,6 +13,8 @@ public class CameraManager : MonoBehaviour
 
     [HideInInspector] public bool cutThisFrame = false;
 
+    [SerializeField] private CinemachineImpulseSource impulseSource;
+
     bool busy = false;
 
     void Awake()
@@ -130,5 +132,13 @@ public class CameraManager : MonoBehaviour
         camB.transform.localRotation = camBRot;
 
         busy = false;
+    }
+
+    public void ShakeActiveCamera(float force = 1f)
+    {
+        if (impulseSource != null)
+        {
+            impulseSource.GenerateImpulse(force);
+        }
     }
 }

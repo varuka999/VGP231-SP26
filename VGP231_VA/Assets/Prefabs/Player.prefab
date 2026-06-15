@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4741488542423237098}
   - component: {fileID: 1184728404493703163}
   - component: {fileID: 3434501876631341388}
+  - component: {fileID: 8465760590537866212}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -36,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 4239319236817111180}
   - {fileID: 1036793048936036399}
+  - {fileID: 2933284879176057957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -194.327, z: 0}
 --- !u!54 &4005356794274758168
@@ -199,6 +201,66 @@ MonoBehaviour:
   damageFlashDuration: 0.15
   damageIndicator: {fileID: 0}
   end: {fileID: 0}
+  hitEventsDelayArray:
+  - delaybleUnityEvents:
+    - delay: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8465760590537866212}
+            m_TargetAssemblyTypeName: SoundTrigger, Assembly-CSharp
+            m_MethodName: PlaySound
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 5761821716892162440}
+            m_TargetAssemblyTypeName: PlayerSprite, Assembly-CSharp
+            m_MethodName: PlayerHitEvent
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  dieEventsDelayArray: []
+--- !u!114 &8465760590537866212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464682713232728274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c744bb61478291488c763e0848f4d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundTrigger
+  clipsToPlay:
+  - {fileID: 8300000, guid: 793f74fcdbc846949bd59b8246e21931, type: 3}
+  - {fileID: 8300000, guid: b432e9def1540604480e54e681304991, type: 3}
+  - {fileID: 8300000, guid: e1a060f9f0c47324695e05b134cb0690, type: 3}
+  - {fileID: 8300000, guid: de85b8ad5a9c2ab47932a4e039007729, type: 3}
+  - {fileID: 8300000, guid: 0ce684a700256b44eb4032c405120bf0, type: 3}
+  clipPositions:
+  - {fileID: 3001790252846956585}
+  - {fileID: 3001790252846956585}
+  - {fileID: 3001790252846956585}
+  - {fileID: 3001790252846956585}
+  - {fileID: 3001790252846956585}
+  clipDelays:
+  - 0
+  clipVolume: 1
+  playOnce: 0
+  playAllAtOnce: 0
 --- !u!1 &5871003851477078705
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +272,7 @@ GameObject:
   - component: {fileID: 4239319236817111180}
   - component: {fileID: 1289860461021524374}
   - component: {fileID: 5761821716892162440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,6 +367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteBillboard
   playerSpriteFront: {fileID: 21300000, guid: d92b35815064a564090929170d438869, type: 3}
   playerSpriteBack: {fileID: 21300000, guid: 2705c3e400eff724a9566524e0ea848b, type: 3}
+  normalSpriteMat: {fileID: 2100000, guid: 32e38784f6157e44584914f6562289d2, type: 2}
+  hitSpriteMat: {fileID: 2100000, guid: 5c2c826b67abf824d9006c192f734813, type: 2}
   rotationSpeed: 10
   lockX: 0
   lockY: 0
@@ -316,6 +380,81 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   enableTurnEvents: 0
+--- !u!1 &6169176399995140875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2933284879176057957}
+  - component: {fileID: 5762369461717762089}
+  m_Layer: 0
+  m_Name: DieCinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2933284879176057957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169176399995140875}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000104308114}
+  m_LocalPosition: {x: -0, y: 0, z: 7.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3001790252846956585}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &5762369461717762089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169176399995140875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 1
+    m_Value: 100
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 54.4
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1001 &6579490591163383938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,6 +551,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 5602218995060935632, guid: ccecdc84343a84e49bc84a0dd1224880, type: 2}
+    - target: {fileID: 6176360665133937798, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8715320612546868580, guid: e906536a8eea2234e9512eecccdb1a87, type: 3}
       propertyPath: m_Name
       value: PlayerDialogue (TMP)

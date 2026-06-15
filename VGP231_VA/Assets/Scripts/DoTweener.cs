@@ -58,7 +58,7 @@ public class DoTweener : MonoBehaviour
 
     public void PlayTweenQueueEvent(int queueCount = 1)
     {
-        StartCoroutine(PlayTweenQueue());
+        StartCoroutine(PlayTweenQueue(queueCount));
     }
 
     public IEnumerator PlayTweenQueue(int queueCount = 1)

@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerSprite : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class PlayerSprite : MonoBehaviour
     [Header("Sprites")]
     [SerializeField] private Sprite playerSpriteFront;
     [SerializeField] private Sprite playerSpriteBack;
+
+    [Header("Attack Settings")]
+    [SerializeField] private Material normalSpriteMat;
+    [SerializeField] private Material hitSpriteMat;
 
     //[SerializeField] private bool startFacingFront;
 
@@ -154,6 +160,49 @@ public class PlayerSprite : MonoBehaviour
     public void SetBackFacingSprite(Sprite backSprite)
     {
         playerSpriteBack = backSprite;
+    }
+
+    public void PlayerHitEvent()
+    {
+        StartCoroutine(PlayerHit());
+    }
+
+    IEnumerator PlayerHit()
+    {
+        spriteRenderer.material = hitSpriteMat;
+
+        transform.DOKill();
+
+        Sequence hitSeq = DOTween.Sequence();
+
+        hitSeq.Append(
+            transform.DOScale(
+                new Vector3(1.25f, 0.75f, 1f),
+                0.06f
+            )
+        );
+
+        hitSeq.Join(
+            transform.DOLocalMoveX(0.25f, 0.05f)
+                .SetRelative()
+        );
+
+        hitSeq.Append(
+            transform.DOScale(
+                Vector3.one,
+                0.25f
+            ).SetEase(Ease.OutElastic)
+        );
+
+        hitSeq.Join(
+            transform.DOLocalMoveX(-0.25f, 0.35f)
+                .SetRelative()
+                .SetEase(Ease.OutElastic)
+        );
+
+        yield return new WaitForSeconds(0.5f);
+
+        spriteRenderer.material = normalSpriteMat;
     }
 
     public void SetTurnEvents(bool turnEvents)

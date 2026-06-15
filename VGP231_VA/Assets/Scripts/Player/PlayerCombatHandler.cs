@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,9 @@ public class PlayerCombatHandler : MonoBehaviour
     private Tween damageFlashTween = null;
     public GameObject damageIndicator = null;
     public Transform end;
+
+    [SerializeField] private DelayableUnityEventArray[] hitEventsDelayArray;
+    [SerializeField] private DelayableUnityEventArray[] dieEventsDelayArray;
 
     private void Awake()
     {
@@ -47,6 +51,8 @@ public class PlayerCombatHandler : MonoBehaviour
         PlayDamageFlash();
 
         // play sfx & audio
+        RunDelayableUnityEventArray(hitEventsDelayArray);
+        CameraManager.Instance.ShakeActiveCamera();
 
         if (healthCounter <= 0)
         {
@@ -81,6 +87,21 @@ public class PlayerCombatHandler : MonoBehaviour
         // play sfx & audio
         // prompt retry
         // temp
-        SceneManager.LoadScene(sceneName);
+        RunDelayableUnityEventArray(dieEventsDelayArray);
+
+        TransitionManager.Instance.TransitionToSceneEvent(sceneName);
+
+        //SceneManager.LoadScene(sceneName);
+    }
+
+    public void RunDelayableUnityEventArray(DelayableUnityEventArray[] eventsDelayArray)
+    {
+        for (int i = 0; i < eventsDelayArray.Length; ++i)
+        {
+            for (int j = 0; j < eventsDelayArray[i].delaybleUnityEvents.Length; ++j)
+            {
+                DelayableUnityEventUtility.Invoke(this, eventsDelayArray[i].delaybleUnityEvents[j]);
+            }
+        }
     }
 }
