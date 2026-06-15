@@ -145,4 +145,9 @@ public class TransitionManager : MonoBehaviour
     {
         playerTransform.position = targetPlayerTransform.position;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }    
 }
