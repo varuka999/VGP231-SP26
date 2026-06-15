@@ -94,7 +94,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Update()
     {
-        if (volumeScript != null && currentDialogueIndex == 0)
+        if (volumeScript != null && currentDialogueIndex == 0 && volumeScript.CurrentTriggerMode != TriggerVolume.TriggerMode.None)
         {
             if (volumeScript.PlayerInside)
             {
@@ -151,7 +151,7 @@ public class DialogueSystem : MonoBehaviour
 
         ClearAllText();
 
-        PlayDialogue(entry);
+        PlayDialogue(entry, false);
     }
 
     public void EndDialogue()
@@ -263,7 +263,7 @@ public class DialogueSystem : MonoBehaviour
         return false;
     }
 
-    private void PlayDialogue(DialogueEntry entry)
+    private void PlayDialogue(DialogueEntry entry, bool incrementDialogueIndex = true)
     {
         IsDialogueActive = true;
 
@@ -272,13 +272,18 @@ public class DialogueSystem : MonoBehaviour
         if (typingRoutine != null)
             StopCoroutine(typingRoutine);
 
-        typingRoutine = StartCoroutine(TypeText(targetText, entry.text));
+        typingRoutine = StartCoroutine(TypeTextReveal(targetText, entry.text));
 
         if (characterTalkingClips.Length > 0)
         {
             talkingCharacterSource = AudioManager.Instance.PlayLoopingSound(
             AudioManager.Instance.GetRandomSound(characterTalkingClips[entry.targetIndex].clips),
             textTargets[entry.targetIndex].transform.position);
+        }
+
+        if (!incrementDialogueIndex)
+        {
+            return;
         }
 
         currentDialogueIndex++;
@@ -291,6 +296,29 @@ public class DialogueSystem : MonoBehaviour
         for (int i = 0; i < message.Length; i++)
         {
             target.text += message[i];
+            yield return new WaitForSeconds(letterDelay);
+        }
+
+        typingRoutine = null;
+    }
+
+    IEnumerator TypeTextReveal(TMP_Text target, string message)
+    {
+        // Set the complete text immediately
+        target.text = message;
+
+        // Force TMP to calculate the final layout
+        target.ForceMeshUpdate();
+
+        int totalCharacters = target.textInfo.characterCount;
+
+        // Hide all characters
+        target.maxVisibleCharacters = 0;
+
+        // Reveal characters one by one
+        for (int i = 0; i <= totalCharacters; i++)
+        {
+            target.maxVisibleCharacters = i;
             yield return new WaitForSeconds(letterDelay);
         }
 

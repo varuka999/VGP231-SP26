@@ -8,6 +8,9 @@ using UnityEngine.UI;
 [DefaultExecutionOrder(-1)]
 public class TransitionManager : MonoBehaviour
 {
+    private static TransitionManager _instance;
+    public static TransitionManager Instance { get { return _instance; } }
+
     private enum TransitionTypes
     {
         Fade,
@@ -33,8 +36,21 @@ public class TransitionManager : MonoBehaviour
 
     private Transform playerTransform;
 
+    // just for debugging purposes
+    private int transitionIndex;
+
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+        }
+
         playerTransform = GameObject.FindWithTag("Player").transform;
         transitionQueue = new Queue<Transition>(transitions);
 
@@ -78,6 +94,7 @@ public class TransitionManager : MonoBehaviour
             yield break;
         }
 
+        ++transitionIndex;
         Transition transition = transitionQueue.Dequeue();
 
         yield return new WaitForSeconds(transition.transitionTriggerDelay);
@@ -141,4 +158,9 @@ public class TransitionManager : MonoBehaviour
     {
         playerTransform.position = targetPlayerTransform.position;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }    
 }

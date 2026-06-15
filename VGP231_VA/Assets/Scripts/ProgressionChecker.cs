@@ -42,4 +42,9 @@ public class ProgressionChecker : MonoBehaviour
         ProgressionManager.Instance.IncrementProgression();
         this.enabled = false;
     }
+
+    public void ProgressSceneEvent()
+    {
+        ProgressionManager.Instance.IncrementProgression();
+    }
 }

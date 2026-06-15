@@ -17,6 +17,7 @@ public class TriggerVolume : MonoBehaviour
 
     [Header("Mode")]
     [SerializeField] private TriggerMode triggerMode = TriggerMode.Enter;
+    public TriggerMode CurrentTriggerMode => triggerMode;
 
     [Header("Event")]
     [SerializeField] private UnityEvent onTriggered;
