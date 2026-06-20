@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4005356794274758168}
   - component: {fileID: 1456416685662014693}
   - component: {fileID: 4741488542423237098}
+  - component: {fileID: 4955924256152558374}
   - component: {fileID: 1184728404493703163}
   - component: {fileID: 3434501876631341388}
   - component: {fileID: 8465760590537866212}
@@ -111,6 +112,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   cam: {fileID: 0}
+--- !u!114 &4955924256152558374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464682713232728274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7984f592bebf3d40b95671cc1080f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  walkingClip: {fileID: 8300000, guid: fb0990ba223a07745a6a4af03d6ed8b1, type: 3}
+  volume: 1
+  mixerGroup: {fileID: -5733535284093403804, guid: e512fbba02e8f294c919d373dfab9548, type: 2}
 --- !u!114 &1184728404493703163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +223,7 @@ MonoBehaviour:
   damageFlashDuration: 0.15
   damageIndicator: {fileID: 0}
   end: {fileID: 0}
+  gameOverCam: {fileID: 6169176399995140875}
   hitEventsDelayArray:
   - delaybleUnityEvents:
     - delay: 0
@@ -250,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c744bb61478291488c763e0848f4d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundTrigger
+  audioGroup: {fileID: 0}
   clipsToPlay:
   - {fileID: 8300000, guid: 793f74fcdbc846949bd59b8246e21931, type: 3}
   - {fileID: 8300000, guid: b432e9def1540604480e54e681304991, type: 3}

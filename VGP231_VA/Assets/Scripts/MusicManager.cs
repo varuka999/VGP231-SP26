@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [DefaultExecutionOrder(-10)]
 public class MusicManager : MonoBehaviour
@@ -20,6 +21,8 @@ public class MusicManager : MonoBehaviour
 
     private static MusicManager _instance;
     public static MusicManager Instance { get { return _instance; } }
+
+    [SerializeField] private AudioMixerGroup musicGroup;
 
     [SerializeField]
     private Ambience[] roomsAmbience = new Ambience[System.Enum.GetValues(typeof(Rooms)).Length];
@@ -59,6 +62,8 @@ public class MusicManager : MonoBehaviour
         source.spatialBlend = 0f;
         source.playOnAwake = false;
         source.volume = 0f;
+
+        source.outputAudioMixerGroup = musicGroup;
 
         return source;
     }

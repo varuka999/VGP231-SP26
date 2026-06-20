@@ -35,6 +35,8 @@ public class PlayerSprite : MonoBehaviour
 
     [SerializeField] private bool enableTurnEvents = false;
 
+    private int defaultLayer;
+
     private bool isFacingFront = false;
     public bool IsFacingFront => isFacingFront;
 
@@ -43,6 +45,8 @@ public class PlayerSprite : MonoBehaviour
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = transform.parent.GetComponent<PlayerController>();
+
+        defaultLayer = gameObject.layer;
 
         //if(startFacingFront)
         //{
@@ -203,6 +207,26 @@ public class PlayerSprite : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         spriteRenderer.material = normalSpriteMat;
+    }
+
+    public void SetSpriteLayer(string layerName)
+    {
+        if (gameObject == null) return;
+
+        int layer = LayerMask.NameToLayer(layerName);
+
+        if (layer == -1)
+        {
+            Debug.LogWarning($"Layer '{layerName}' does not exist.");
+            return;
+        }
+
+        gameObject.layer = layer;
+    }
+
+    public void SetDefaultLayer()
+    {
+        gameObject.layer = defaultLayer;
     }
 
     public void SetTurnEvents(bool turnEvents)

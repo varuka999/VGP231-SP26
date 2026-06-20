@@ -11,14 +11,14 @@ public class TransitionManager : MonoBehaviour
     private static TransitionManager _instance;
     public static TransitionManager Instance { get { return _instance; } }
 
-    private enum TransitionTypes
+    public enum TransitionTypes
     {
         Fade,
         None
     }
 
     [System.Serializable]
-    private struct Transition
+    public struct Transition
     {
         public Image transitionObject;
         public TransitionTypes transitionType;
@@ -30,6 +30,7 @@ public class TransitionManager : MonoBehaviour
     }
 
     [SerializeField] private Transition[] transitions;
+    [SerializeField] private Transition gameOverTransition;
     private Queue<Transition> transitionQueue;
 
     [SerializeField] private bool startSceneWithTransition = false;
@@ -82,12 +83,17 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
+    public void GameOverTransition()
+    {
+        StartCoroutine(TransitionToScene(SceneManager.GetActiveScene().name, gameOverTransition));
+    }
+
     public void TransitionToSceneEvent(string sceneName)
     {
         StartCoroutine(TransitionToScene(sceneName));
     }
 
-    public IEnumerator TransitionToScene(string sceneToTransitionTo)
+    public IEnumerator TransitionToScene(string sceneToTransitionTo, Transition? transitionToPlay = null)
     {
         if (transitionQueue.Count <= 0)
         {
@@ -95,7 +101,17 @@ public class TransitionManager : MonoBehaviour
         }
 
         ++transitionIndex;
-        Transition transition = transitionQueue.Dequeue();
+
+        Transition transition;
+
+        if (transitionToPlay == null)
+        {
+            transition = transitionQueue.Dequeue();
+        }
+        else
+        {
+            transition = transitionToPlay.Value;
+        }
 
         yield return new WaitForSeconds(transition.transitionTriggerDelay);
 

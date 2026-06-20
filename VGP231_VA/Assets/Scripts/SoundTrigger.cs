@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundTrigger : MonoBehaviour
 {
     [Header("Sound Settings")]
+    [SerializeField] private AudioMixerGroup audioGroup;
+
     [SerializeField] private AudioClip[] clipsToPlay;
     [SerializeField] private Transform[] clipPositions;
     [SerializeField] private float[] clipDelays = { 0.0f };
@@ -41,6 +44,6 @@ public class SoundTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        AudioManager.Instance.PlaySoundInSpace(clipToPlay, source.position, clipVolume);
+        AudioManager.Instance.PlaySoundInSpace(clipToPlay, source.position, clipVolume, audioGroup);
     }
 }

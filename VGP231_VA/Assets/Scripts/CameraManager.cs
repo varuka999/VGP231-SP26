@@ -136,9 +136,14 @@ public class CameraManager : MonoBehaviour
 
     public void ShakeActiveCamera(float force = 1f)
     {
-        if (impulseSource != null)
-        {
-            impulseSource.GenerateImpulse(force);
-        }
+        if (impulseSource == null) return;
+
+        Vector3 impulseDir = new Vector3(
+            Random.Range(-0.25f, 0.25f), // X
+            1f,                           // Y (main shake direction)
+            Random.Range(-0.25f, 0.25f)  // Z
+        ).normalized;
+
+        impulseSource.GenerateImpulse(impulseDir * force);
     }
 }
