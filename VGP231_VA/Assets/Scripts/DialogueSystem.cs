@@ -126,6 +126,11 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
+        if(talkingCharacterSource != null)
+        {
+            return;
+        }
+
         if (randomDialoguePoolIndex < 0 || randomDialoguePoolIndex >= randomDialoguePool.Length)
         {
             Debug.LogWarning("Invalid random pool index on dialogue entry " + randomDialoguePoolIndex);
@@ -169,6 +174,11 @@ public class DialogueSystem : MonoBehaviour
     {
         // Disabling dialogue interrupution for now for simplicity
         if (typingRoutine != null)
+        {
+            return;
+        }
+
+        if (talkingCharacterSource != null)
         {
             return;
         }
