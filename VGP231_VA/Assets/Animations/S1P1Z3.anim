@@ -58,14 +58,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
-    functionName: PlayNextAttackScript
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.75
+  - time: 0.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -86,7 +79,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.25
+  - time: 1.5
+    functionName: PlayNextAttackScript
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -100,14 +100,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.75
-    functionName: PlayNextAttackScript
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2.75
+  - time: 2.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -128,14 +121,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.25
+  - time: 3.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.25
+  - time: 3.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -149,14 +142,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.75
-    functionName: PlayNextAttackScript
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 4.75
+  - time: 4.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -177,14 +163,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 5.25
+  - time: 5.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 5.25
+  - time: 5.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -198,14 +184,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 6.75
-    functionName: PlayNextAttackScript
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 6.75
+  - time: 6.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -226,14 +205,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.25
+  - time: 7.483333
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.25
+  - time: 7.483333
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -247,14 +226,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 8.75
-    functionName: PlayNextAttackScript
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 8.75
+  - time: 8.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -275,14 +247,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 9.25
+  - time: 9.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 9.25
+  - time: 9.5
+    functionName: PlayNextAttackScript
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 10.5
+    functionName: PlayNextAttackScript
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 10.5
     functionName: PlayNextAttackScript
     data: 
     objectReferenceParameter: {fileID: 0}
