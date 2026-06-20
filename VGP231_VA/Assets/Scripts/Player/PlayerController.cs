@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 1.5f;
     public float acceleration = 10f;
     public float deceleration = 15f;
 
@@ -68,5 +68,10 @@ public class PlayerController : MonoBehaviour
     public void SetMove(bool move)
     {
         disableMove = !move;
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
     }
 }

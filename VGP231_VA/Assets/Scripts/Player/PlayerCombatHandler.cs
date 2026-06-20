@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCombatHandler : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+
     [Header("Health")]
-    private int healthCounter = 0;
+    private int healthCounter = 9999;
     public int HealthCounter => healthCounter;
     public string sceneName = string.Empty;
 
@@ -22,11 +24,16 @@ public class PlayerCombatHandler : MonoBehaviour
     [SerializeField] private DelayableUnityEventArray[] hitEventsDelayArray;
     [SerializeField] private DelayableUnityEventArray[] dieEventsDelayArray;
 
+
     private void Awake()
     {
         if (playerSprite != null)
         {
             originalColor = playerSprite.color;
+        }
+        if (playerController == null)
+        {
+            playerController = this.gameObject.GetComponent<PlayerController>();
         }
     }
 
@@ -41,7 +48,20 @@ public class PlayerCombatHandler : MonoBehaviour
 
     public void CombatStart()
     {
-        healthCounter = 10000;
+        if(playerController != null)
+        {
+            playerController.SetMoveSpeed(1.8f);
+        }
+
+        healthCounter = 5; //--------------------------------------------
+    }
+
+    public void CombatEnd()
+    {
+        if (playerController != null)
+        {
+            playerController.SetMoveSpeed(1.5f);
+        }
     }
 
     private void TakeDamage()

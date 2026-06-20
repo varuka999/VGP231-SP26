@@ -6,21 +6,48 @@ using UnityEngine;
 public enum MovementProfile
 {
     Straight,
-    VerticalArc,
-    HorizontalArc,
     Final,
 }
 
 public class DoTweenAttack : MonoBehaviour
 {
-    public Transform parent;
-    public Transform end;
-    public Ease easeType;
-    public float duration;
-    public MovementProfile movementType;
+    [SerializeField] private AttackParent parent;
+    private Transform end;
+    private Ease easeType;
+    private float duration;
+    private MovementProfile movementType;
+
+    private float anticipationDuration;
+    private float shakeStrength;
+    private int shakeVibrato;
+
+    private Vector3 originalScale;
+    private Vector3 originalPosition;
+
+    private GameObject damageZoneIndicator;
+    [SerializeField] private float indicatorPulseScale;
+    [SerializeField] private int indicatorFlashLoops;
+
+    private void Awake()
+    {
+        originalScale = transform.localScale;
+        originalPosition = transform.position;
+    }
 
     private void OnEnable()
     {
+        end = parent.end;
+        easeType = parent.easeType;
+        duration = parent.duration;
+        movementType = parent.movementType;
+        shakeStrength = parent.shakeStrength;
+        shakeVibrato = parent.shakeVibrato;
+        anticipationDuration = parent.anticipationDuration;
+        damageZoneIndicator = parent.damageZoneIndicator;
+        indicatorPulseScale = parent.indicatorPulseScale;
+        indicatorFlashLoops = parent.indicatorFlashLoops;
+        transform.position = originalPosition;
+
         StartAttack();
     }
 
@@ -31,10 +58,6 @@ public class DoTweenAttack : MonoBehaviour
             case MovementProfile.Straight:
                 Straight();
                 break;
-            case MovementProfile.VerticalArc:
-                break;
-            case MovementProfile.HorizontalArc:
-                break;
             case MovementProfile.Final:
                 Final();
                 break;
@@ -43,28 +66,72 @@ public class DoTweenAttack : MonoBehaviour
         }
     }
 
-    public void Loop()
-    {
-        Sequence seq = DOTween.Sequence();
-
-        seq.Append(gameObject.transform.DOMoveY(-3.0f, 3.0f));
-        seq.Append(gameObject.transform.DOMoveY(3.0f, 3.0f));
-        seq.SetLoops(-1);
-
-        seq.Play();
-    }
-    public void Move()
-    {
-        gameObject.transform.DOMoveY(-3.0f, 3.0f);
-    }
-
     public void Straight()
     {
         Sequence seq = DOTween.Sequence();
 
-        //seq.Append(gameObject.transform.DOLocalMoveY(-0.3f, 0.5f)).SetEase(Ease.InSine);
-        //seq.Join(gameObject.transform.DOShakePosition(0.5f));
-        seq.Append(gameObject.transform.DOMove(new Vector3(end.position.x, end.position.y, end.position.z), duration)).SetEase(easeType).OnComplete(Delete);
+        Vector3 endPosition = end.position;
+
+        transform.localScale = originalScale * 0.40f;
+
+        if (damageZoneIndicator != null)
+        {
+            damageZoneIndicator.SetActive(true);
+            damageZoneIndicator.transform.localScale = Vector3.one;
+        }
+
+        seq.Append(
+            transform.DOScale(originalScale, anticipationDuration)
+                .SetEase(Ease.OutBack)
+        );
+
+        seq.Join(
+            transform.DOShakePosition(
+                anticipationDuration,
+                new Vector3(shakeStrength, 0f, shakeStrength),
+                shakeVibrato,
+                90f,
+                false,
+                true
+            )
+        );
+
+        if (damageZoneIndicator != null)
+        {
+            seq.Join(
+                damageZoneIndicator.transform
+                    .DOScale(Vector3.one * indicatorPulseScale, anticipationDuration / (indicatorFlashLoops * 2.0f))
+                    .SetLoops(indicatorFlashLoops * 2, LoopType.Yoyo)
+                    .SetEase(Ease.OutQuad)
+            );
+        }
+
+        float moveStartTime = seq.Duration();
+
+        seq.AppendCallback(() =>
+        {
+            if (damageZoneIndicator != null)
+            {
+                damageZoneIndicator.SetActive(false);
+            }
+        });
+
+        seq.Append(
+            transform.DOMove(endPosition, duration)
+                .SetEase(easeType)
+        );
+
+        float shrinkStartPercent = 0.70f;
+        float shrinkStartTime = moveStartTime + duration * shrinkStartPercent;
+        float shrinkTime = duration * (1.0f - shrinkStartPercent);
+
+        seq.Insert(
+            shrinkStartTime,
+            transform.DOScale(Vector3.zero, shrinkTime)
+                .SetEase(Ease.InBack)
+        );
+
+        seq.OnComplete(Delete);
 
         seq.Play();
     }
@@ -75,12 +142,12 @@ public class DoTweenAttack : MonoBehaviour
 
         seq.Append(
             transform.DOShakePosition(
-                1.5f,                      // shake duration
+                1.5f,                        // shake duration
                 new Vector3(0.25f, 0f, 0f),  // shake strength/direction
                 100,                         // vibrato: how many shakes
-                90f,                        // randomness
-                false,                      // snapping
-                true                        // fade out
+                90f,                         // randomness
+                false,                       // snapping
+                true                         // fade out
             )
         );
 
@@ -91,35 +158,6 @@ public class DoTweenAttack : MonoBehaviour
             )
             .SetEase(easeType)
         );
-    }
-
-    public void HorizontalArc()
-    {
-        Sequence seq1 = DOTween.Sequence();
-        Sequence seq2 = DOTween.Sequence();
-        //float startZ = gameObject.transform.position.z;
-        float startZ = 0.5f;
-        seq1.Append(gameObject.transform.DOMoveX(end.position.x, duration)).SetEase(easeType);
-        seq2.Append(gameObject.transform.DOMoveZ(end.position.z + -2.0f, duration * 0.5f).SetEase(easeType)).OnComplete(() =>
-        { gameObject.transform.DOMoveZ(startZ, duration * 0.5f).SetEase(easeType).OnComplete(Delete); });
-
-        seq1.Play();
-        seq2.Play();
-    }
-
-    public void HorizontalArc2()
-    {
-        float startZ = transform.position.z;
-        float arcZ = startZ - 1.5f;
-
-        Sequence sequence = DOTween.Sequence();
-
-        sequence.Append(transform.DOMoveX(end.position.x, duration).SetEase(easeType));
-
-        sequence.Join(transform.DOMoveZ(arcZ, duration * 0.5f).SetEase(Ease.OutQuad)
-                .OnComplete(() => { transform.DOMoveZ(startZ, duration * 0.5f).SetEase(Ease.InQuad); }));
-
-        sequence.OnComplete(Delete);
     }
 
     void Delete()
