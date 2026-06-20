@@ -80,6 +80,11 @@ public class PlayerSprite : MonoBehaviour
 
     public void FaceBack()
     {
+        if(spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         spriteRenderer.sprite = playerSpriteBack;
         targetYRotation = 180f;
 
@@ -93,6 +98,11 @@ public class PlayerSprite : MonoBehaviour
 
     public void FaceFront()
     {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         spriteRenderer.sprite = playerSpriteFront;
         targetYRotation = 0f;
 
