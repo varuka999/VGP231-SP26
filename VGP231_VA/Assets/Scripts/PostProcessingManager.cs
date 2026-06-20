@@ -11,7 +11,10 @@ public class PostProcessingManager : MonoBehaviour
     [Header("Post Processing")]
 
     private ColorAdjustments colorAdjustments;
+    private ColorLookup colorLookup;
+
     private Coroutine saturationCoroutine;
+    private Coroutine colorLookupCoroutine;
 
     private void Awake()
     {
@@ -67,4 +70,68 @@ public class PostProcessingManager : MonoBehaviour
         postProcessVolume.profile.TryGet(out colorAdjustments);
         return colorAdjustments.saturation.value;
     }
+
+    #region Color Lookup
+
+    public void LerpToColorLookupContribution(
+        Volume postProcessVolume,
+        float targetContribution,
+        float duration)
+    {
+        if (colorLookupCoroutine != null)
+        {
+            StopCoroutine(colorLookupCoroutine);
+        }
+
+        if (postProcessVolume.profile.TryGet(out colorLookup))
+        {
+            colorLookupCoroutine = StartCoroutine(
+                LerpColorLookupContributionCoroutine(targetContribution, duration));
+        }
+    }
+
+    private IEnumerator LerpColorLookupContributionCoroutine(
+        float targetContribution,
+        float duration)
+    {
+        float startContribution = colorLookup.contribution.value;
+
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            float t = timer / duration;
+
+            colorLookup.contribution.value =
+                Mathf.Lerp(startContribution, targetContribution, t);
+
+            yield return null;
+        }
+
+        colorLookup.contribution.value = targetContribution;
+
+        colorLookupCoroutine = null;
+    }
+
+    public float GetCurrentColorLookupContribution(Volume postProcessVolume)
+    {
+        if (postProcessVolume.profile.TryGet(out colorLookup))
+        {
+            return colorLookup.contribution.value;
+        }
+
+        return 0f;
+    }
+
+    public void SetColorLookup(Volume postProcessVolume, Texture lookupTexture)
+    {
+        if (postProcessVolume.profile.TryGet(out colorLookup))
+        {
+            colorLookup.texture.value = lookupTexture;
+        }
+    }
+
+    #endregion
 }

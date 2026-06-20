@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2038657620422959488}
   - component: {fileID: 529611987759214036}
   - component: {fileID: 3859574780623923648}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerHealthIndicatorPlaceholder (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03fc6ef165599843a64074fc2340ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  sfxGroup: {fileID: -5733535284093403804, guid: e512fbba02e8f294c919d373dfab9548, type: 2}
 --- !u!114 &1577789158194985352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50afb615688441d49a56854e256853b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  musicGroup: {fileID: -2151298278782938365, guid: e512fbba02e8f294c919d373dfab9548, type: 2}
   roomsAmbience:
   - room: 0
     ambience:
@@ -145,6 +147,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionManager
   transitions: []
+  gameOverTransition:
+    transitionObject: {fileID: 0}
+    transitionType: 0
+    inDuration: 0
+    outDuration: 1
+    transitionTriggerDelay: 1
+    sceneTriggerDelay: 0
   startSceneWithTransition: 0
 --- !u!114 &1807147778262585652
 MonoBehaviour:

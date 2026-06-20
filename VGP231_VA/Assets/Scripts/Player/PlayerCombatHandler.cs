@@ -19,6 +19,8 @@ public class PlayerCombatHandler : MonoBehaviour
     public GameObject damageIndicator = null;
     public Transform end;
 
+    [SerializeField] private GameObject gameOverCam;
+
     [SerializeField] private DelayableUnityEventArray[] hitEventsDelayArray;
     [SerializeField] private DelayableUnityEventArray[] dieEventsDelayArray;
 
@@ -42,6 +44,7 @@ public class PlayerCombatHandler : MonoBehaviour
     public void CombatStart()
     {
         healthCounter = 10000;
+        //healthCounter = 3;
     }
 
     private void TakeDamage()
@@ -82,14 +85,16 @@ public class PlayerCombatHandler : MonoBehaviour
         obj.SetActive(false);
     }
 
-    private void PlayerDeath()
+    public void PlayerDeath()
     {
         // play sfx & audio
         // prompt retry
         // temp
         RunDelayableUnityEventArray(dieEventsDelayArray);
 
-        TransitionManager.Instance.TransitionToSceneEvent(sceneName);
+        //TransitionManager.Instance.TransitionToSceneEvent(sceneName);
+        TransitionManager.Instance.GameOverTransition();
+        gameOverCam.SetActive(true);
 
         //SceneManager.LoadScene(sceneName);
     }
