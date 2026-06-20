@@ -2604,7 +2604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252751475345298452, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: transitions.Array.data[1].outDuration
-      value: 2
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7252751475345298452, guid: d6eea5b773477714094ec3f78d01bd46, type: 3}
       propertyPath: transitions.Array.data[0].transitionObject
@@ -4462,7 +4462,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 34.1
+  field of view: 22.013489
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4489,7 +4489,7 @@ Transform:
   m_GameObject: {fileID: 1840832624}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0021263654, y: 0.0000027467086, z: -0.0000010773301, w: -0.99999774}
-  m_LocalPosition: {x: 0, y: 0.96, z: 19.92}
+  m_LocalPosition: {x: -0.0025600195, y: 0.9387067, z: 15.135464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

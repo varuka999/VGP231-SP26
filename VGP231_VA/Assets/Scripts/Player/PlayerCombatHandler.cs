@@ -49,6 +49,8 @@ public class PlayerCombatHandler : MonoBehaviour
 
     private void TakeDamage()
     {
+        if (healthCounter <= 0) return;
+
         --healthCounter;
 
         PlayDamageFlash();
