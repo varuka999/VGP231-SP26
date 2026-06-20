@@ -34,7 +34,7 @@ public class EnemyCombatHandler : MonoBehaviour
         if (combatIndex == 0)
         {
             isInEncounter = true;
-            playerCombatHandler.CombatStart();
+            playerCombatHandler?.CombatStart();
 
             SphereCollider interactCollider = this.gameObject.GetComponent<SphereCollider>();
             if (interactCollider != null)
@@ -56,6 +56,7 @@ public class EnemyCombatHandler : MonoBehaviour
         if (combatIndex >= attackCycleGameObject.Count)
         {
             isInEncounter = false;
+            playerCombatHandler?.CombatEnd();
         }
 
         this.gameObject.GetComponent<DialogueSystem>().NextDialogue();
