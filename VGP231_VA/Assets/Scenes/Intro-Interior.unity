@@ -1369,6 +1369,7 @@ GameObject:
   - component: {fileID: 859423622}
   - component: {fileID: 859423621}
   - component: {fileID: 859423624}
+  - component: {fileID: 859423625}
   - component: {fileID: 859423623}
   m_Layer: 0
   m_Name: Door Trigger
@@ -1436,6 +1437,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8828868818729847843}
         m_TargetAssemblyTypeName: DoTweener, Assembly-CSharp
         m_MethodName: PlayTweenQueueEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: Scenario-1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 859423625}
+        m_TargetAssemblyTypeName: SoundTrigger, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1498,18 +1511,37 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5693c7bf43631c64ab3071c26136d7f8, type: 3}
   - {fileID: 8300000, guid: d9cc025fd517827449daa0ec9e62df71, type: 3}
   - {fileID: 8300000, guid: 5bb849f27ff262240a1799d0c3614878, type: 3}
-  - {fileID: 8300000, guid: ec755df524e893f4bab9574eb62b3a31, type: 3}
   clipPositions:
   - {fileID: 266039001}
   - {fileID: 266039001}
-  - {fileID: 5920779229032263457}
   - {fileID: 5920779229032263457}
   clipDelays:
   - 0
   - 0
   - 1
-  - 1
   clipVolume: 1
+  playOnce: 1
+  playAllAtOnce: 1
+--- !u!114 &859423625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859423617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c744bb61478291488c763e0848f4d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundTrigger
+  audioGroup: {fileID: 0}
+  clipsToPlay:
+  - {fileID: 8300000, guid: ec755df524e893f4bab9574eb62b3a31, type: 3}
+  clipPositions:
+  - {fileID: 5920779229032263457}
+  clipDelays:
+  - 1
+  clipVolume: 0.65
   playOnce: 1
   playAllAtOnce: 1
 --- !u!1 &957651097
